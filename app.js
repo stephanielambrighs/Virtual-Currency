@@ -4,8 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const config = require('config');
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+
+const mongoose = require('mongoose');
+mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
 
