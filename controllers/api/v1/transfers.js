@@ -1,6 +1,7 @@
 const Transfer = require('../../../models/transfers');
 
-function getAll(req, res) {
+// haal alle transfers op (nog sorteren op gebruiker aan de hand van user model)
+function getAllT(req, res) {
    Transfer.find({}, function (err, docs) {
         if (!err) {
             res.json({
@@ -11,9 +12,10 @@ function getAll(req, res) {
     });
 }
 
-function getOneT(req, res) {
 
-   Transfer.find({ _id: req.params.id }, function (err, docs) {
+//haal een specifieke transfer uit de databank
+function getOneT(req, res) {
+   Transfer.findOne({ id: req.params.id }, function (err, docs) {
         if (!err) {
             res.json({
                 "status": "success 1",
@@ -25,28 +27,7 @@ function getOneT(req, res) {
 };
 
 
-const create = (req, res) =>{
-    let transfer = new Transfer();
-    transfer.text = "transfer test";
-    transfer.user = "jef";
-    transfer.save((err, doc)=>{
-        if(!err){
-            res.json({
-                "status": "succes",
-                "data": {
-                    "transfer": doc
-                }
-            });
-        }else{
-            res.json({
-                "status": "fail",
-                
-            });
-        }
-       
-    })
-}
 
-module.exports.getAll = getAll;
-module.exports.create = create;
+
+module.exports.getAllT = getAllT;
 module.exports.getOneT= getOneT;
