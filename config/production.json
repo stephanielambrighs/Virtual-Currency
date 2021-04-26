@@ -1,6 +1,6 @@
 {
     "Database":{
-        "conn": "mongodb+srv://Nick:IMDcoinNick@cluster0.vvuvr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "conn": "mongodb+srv://Nick:test@cluster0.vvuvr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
     }
 }

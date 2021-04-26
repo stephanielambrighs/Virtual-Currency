@@ -3,13 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const config = require('config');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');
 
 const mongoose = require('mongoose');
-mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true}); // change localhost later to cluster online
+mongoose.connect(config.get('Database.conn'),{useNewUrlParser: true, useUnifiedTopology: true} );
 
 var app = express();
 
