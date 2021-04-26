@@ -6,7 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var apiTransfersRouter = require('./routes/api/v1/transfers')
+var apiTransfersRouter = require('./routes/api/v1/transfers');
+
+const mongoose = require('mongoose');
+mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true}); // change localhost later to cluster online
 
 var app = express();
 
