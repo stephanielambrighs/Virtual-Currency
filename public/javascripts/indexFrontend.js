@@ -5,9 +5,22 @@ fetch('http://localhost:3000/api/v1/transfers',{
     },
     
 }).then(response =>{
-    //let test = response.json();
-    //console.log(test);
     return response.json();
 }).then(json =>{
-    console.log(json);
+    let transferList = document.querySelector('.transferList');
+    let test = document.querySelector('.test');
+
+    json.data.forEach(element => {
+        
+        test = document.createElement('li');
+        test.append(element.userFrom);
+       // let transfer =`div `+ element.userFrom;
+
+        console.log(test);
+
+
+        transferList.append(test);
+
+    });
+
 })
