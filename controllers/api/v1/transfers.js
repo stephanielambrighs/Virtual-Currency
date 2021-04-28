@@ -6,7 +6,7 @@ function getAllT(req, res) {
         if (!err) {
             res.json({
                 "status": "success",
-                "message": docs
+                "data": docs
             })
         }
     });
@@ -19,7 +19,7 @@ function getOneT(req, res) {
         if (!err) {
             res.json({
                 "status": "success 1",
-                "message": docs
+                "data": docs
             })
         }
     })
