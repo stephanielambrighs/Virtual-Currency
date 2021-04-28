@@ -4,7 +4,8 @@ const transferSchema = new Shema({
     userFrom: String,
     userTo : String,
     coins: Number,
-    discription: String
+    reason: String,
+    description: String
 })
 
 const Transfer = mongoose.model('Transfer', transferSchema);

@@ -4,7 +4,33 @@ block content
   h1= title
   p Welcome to #{title}
 
-  ul.
+
+  label(for='receiver') Receiver
+  br
+  input#receiver(type='text' name='Receiver')
+  br
+  label(for='amount') amount
+  br
+  input#amount(type='text')
+  br
+
+  label(for='reason') Reason:
+  select#reason
+    option(value='devHelp') Development help
+    option(value='desHelp') Design help
+    option(value='feedback') Feedback
+    option(value='deadlines') Meeting deadlines
+    option(value='other') Other
+
+
+  br
+  label(for='description') description
+  br
+  input#description(type='text')
+  br
+  br
+  input#btn(type='submit' value='Submit')
+
    
    
 
