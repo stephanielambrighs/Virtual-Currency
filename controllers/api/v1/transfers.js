@@ -6,7 +6,7 @@ function getAllT(req, res) {
         if (!err) {
             res.json({
                 "status": "success",
-                "message": docs
+                "data": docs
             })
         }
     });
@@ -18,8 +18,8 @@ function getOneT(req, res) {
    Transfer.findOne({ id: req.params.id }, function (err, docs) {
         if (!err) {
             res.json({
-                "status": "success 1",
-                "message": docs
+                "status": "success transfer:id",
+                "data": docs
             })
         }
     })
