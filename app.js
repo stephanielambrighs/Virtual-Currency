@@ -9,6 +9,7 @@ const config = require('config');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');
+var apiLeaderboardRouter = require('./routes/api/v1/leaderboard');
 
 
 const mongoose = require('mongoose');
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1/transfers', apiTransfersRouter);
+app.use('/api/v1/leaderboard', apiLeaderboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
