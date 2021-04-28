@@ -6,9 +6,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/* GET home page. */
+/* GET test page. */
 router.get('/test', function(req, res, next) {
   res.render('test');
+});
+
+router.get('/transfer', function(req, res, next) {
+  res.render('transfer');
 });
 
 module.exports = router;

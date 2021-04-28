@@ -1,26 +1,39 @@
-fetch('http://localhost:3000/api/v1/transfers',{
-    method: "get",
-    headers:{
-        'Content-Type': 'application/json'
-    },
-    
-}).then(response =>{
-    return response.json();
-}).then(json =>{
-    let transferList = document.querySelector('.transferList');
-    let test = document.querySelector('.test');
+// nog checken of het een transfer voor de user van dit acc is
 
-    json.data.forEach(element => {
+//print transfers
+let printTransfers = () => {
+    fetch('http://localhost:3000/api/v1/transfers',{
+        method: "get",
+        headers:{
+            'Content-Type': 'application/json'
+        },
         
-        test = document.createElement('li');
-        test.append(element.userFrom);
-       // let transfer =`div `+ element.userFrom;
+    }).then(response =>{
+        return response.json();
+    }).then(json =>{
+        let transferList = document.querySelector('.transferList');
+        let test = document.querySelector('.test');
+    
+        json.data.forEach(element => {
+            
+            // met insertAdjacentHTML werken om grotere blokken toe te voegen
 
-        console.log(test);
+            transfer = document.createElement('li');
+            transfer.append(element.userFrom);
+            transferList.append(transfer);
+    
+        });
+    
+    })
+}
+
+printTransfers();
+
+// get user
+let name;
 
 
-        transferList.append(test);
 
-    });
+//update Balance
 
-})
+
