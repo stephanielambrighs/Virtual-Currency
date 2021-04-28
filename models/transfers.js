@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const Shema = mongoose.Schema;
-const transferShema = new Shema({
+const Schema = mongoose.Schema;
+const transferSchema = new Schema({
     userFrom: String,
     userTo : String,
     coins: Number,
-    discription: String
+    description: String
 })
 
-const Transfer = mongoose.model('Transfer', transferShema);
+const Transfer = mongoose.model('Transfer', transferSchema);
 
 module.exports = Transfer;
