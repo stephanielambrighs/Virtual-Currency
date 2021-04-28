@@ -25,5 +25,23 @@ const signUp = async (req, res, next) => {
     });
 }
 
+// has to filt in the correct username and password
+const logIn = async (req, res, next) => {
+    const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
+        res.json({
+            "status": "succes",
+            "data": {
+                "user": result
+            }
+        })
+    }).catch(error => {
+        res.json({
+            "status" : "failed",
+            "message": error
+        })
+    });
+}
+
 
 module.exports.signUp = signUp;
+module.exports.logIn = logIn;
