@@ -8,7 +8,7 @@ function getAllT(req, res) {
                 "status": "success",
                 "message": docs
             })
-        } 
+        }
     });
 }
 
@@ -21,15 +21,29 @@ function getOneT(req, res) {
                 "status": "success 1",
                 "message": docs
             })
-        } 
+        }
     })
 
 };
 
 
 
+function createCoin(req, res){
+    let transfer = new Transfer(req.body);
+
+    transfer.save(function(err,result){
+        if(!err){
+            res.json(result);
+        }
+        else{
+            res.send(err);
+        }
+    });
+
+}
 
 
 
 module.exports.getAllT = getAllT;
 module.exports.getOneT= getOneT;
+module.exports.createCoin = createCoin;
