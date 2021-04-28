@@ -1,6 +1,6 @@
 const Transfer = require('../../../models/transfers');
 
-// haal alle transfers op (nog sorteren op gebruiker aan de hand van user model)
+// haal alle transfers op (nog sorteren op gebruiker)
 function getAllT(req, res) {
    Transfer.find({}, function (err, docs) {
         if (!err) {

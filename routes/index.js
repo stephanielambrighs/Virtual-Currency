@@ -11,8 +11,14 @@ router.get('/test', function(req, res, next) {
   res.render('test');
 });
 
+/* GET transfer page. */
 router.get('/transfer', function(req, res, next) {
   res.render('transfer');
+});
+
+/* GET history page. */
+router.get('/history', function(req, res, next) {
+  res.render('history');
 });
 
 module.exports = router;

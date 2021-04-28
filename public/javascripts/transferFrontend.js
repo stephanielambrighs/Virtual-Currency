@@ -1,3 +1,5 @@
+//to do : use form input
+
 let userFrom = 'test1';
 let userTo = 'test1';
 let coins = '99';
@@ -24,3 +26,19 @@ let postTransfer = () => {
 }
 
 postTransfer();
+
+//get/update Balance
+/*let getBalance = () => {
+    fetch('',{
+        method: "get",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        
+    }).then(response =>{
+        return response.json();
+    }).then(json =>{
+       
+    
+    })
+}*/
