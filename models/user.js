@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const localMongoose = require('passport-local-mongoose');
 const User = new Schema({
-    firstName: String,
-    lastName: String,
+    username: String,
     coins: Number
 });
 
