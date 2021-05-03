@@ -21,4 +21,8 @@ router.get('/history', function(req, res, next) {
   res.render('history');
 });
 
+router.get('/signup', function(req, res, next) {
+  res.render('signup');
+});
+
 module.exports = router;
