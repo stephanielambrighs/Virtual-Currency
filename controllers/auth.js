@@ -2,15 +2,13 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 const signUp = async (req, res, next) => {
-     let firstName = req.body.firstName;
-     let lastName = req.body.lastName;
+     let fullname = req.body.fullname;
     let username = req.body.username;
     let password = req.body.password;
     let coins = req.body.coins;
 
     const user = new User({
-         firstName: firstName,
-         lastName: lastName,
+         fullname: fullname,
         username: username,
        coins: coins
     });

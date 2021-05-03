@@ -48,12 +48,11 @@ let getUserData = () => {
     }).then(response =>{
         return response.json();
     }).then(json =>{
-        fullUserName = json.user[0].firstName +" "+ json.user[0].lastName;
         userBalance = json.user[0].coins;
         console.log(userBalance);
 
         let usernamePlaceholder = document.querySelector('.username');
-        usernamePlaceholder.innerHTML = fullUserName;
+        usernamePlaceholder.innerHTML = json.user[0].fullname;
     
     }).catch(err => {
         console.log(err)
