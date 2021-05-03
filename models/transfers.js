@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const Shema = mongoose.Schema;
-const transferSchema = new Shema({
+const Schema = mongoose.Schema;
+const transferSchema = new Schema({
     userFrom: String,
     userTo : String,
     coins: Number,
-    reason: String,
     description: String
 })
 

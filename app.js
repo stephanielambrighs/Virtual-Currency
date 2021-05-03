@@ -13,6 +13,8 @@ var apiLeaderboardRouter = require('./routes/api/v1/leaderboard');
 
 
 const mongoose = require('mongoose');
+// use current version
+mongoose.set('useCreateIndex', true);
 mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
