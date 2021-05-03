@@ -2,6 +2,7 @@ const Transfer = require('../../../models/transfers');
 const User = require('../../../models/user');
 
 
+
 // haal alle transfers op (nog sorteren op gebruiker)
 function getAllT(req, res) {
     Transfer.find({
