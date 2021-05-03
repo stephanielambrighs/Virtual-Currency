@@ -16,12 +16,22 @@ let printTransfers = () => {
         let test = document.querySelector('.test');
     
         json.data.forEach(element => {
+
+           /* if(element.userTo == firstName +" "+lastName) { 
+                var name = element.userFrom
+                var sign = "+"
+              }*/
+
+            let transfer =` <p>${element.userFrom} to ${element.userTo} amount ${element.coins}</p>`
+        
+                
+            transferList.insertAdjacentHTML('afterbegin', transfer)
             
             // met insertAdjacentHTML werken om grotere blokken toe te voegen
 
-            transfer = document.createElement('li');
+           /* transfer = document.createElement('li');
             transfer.append(element.userFrom);
-            transferList.append(transfer);
+            transferList.append(transfer);*/
     
         });
     
