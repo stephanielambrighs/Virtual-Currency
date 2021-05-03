@@ -27,11 +27,6 @@ let printTransfers = () => {
                 
             transferList.insertAdjacentHTML('afterbegin', transfer)
             
-            // met insertAdjacentHTML werken om grotere blokken toe te voegen
-
-           /* transfer = document.createElement('li');
-            transfer.append(element.userFrom);
-            transferList.append(transfer);*/
     
         });
     
@@ -41,38 +36,32 @@ let printTransfers = () => {
 printTransfers();
 
 // get user
-let name;
-/*let getUser = () => {
-    fetch('',{
+let fullUserName;
+let getUserData = () => {
+    fetch('http://localhost:3000/api/v1/transfers/user',{
         method: "get",
         headers:{
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         
     }).then(response =>{
         return response.json();
     }).then(json =>{
-       
+        fullUserName = json.user[0].firstName +" "+ json.user[0].lastName;
+        userBalance = json.user[0].coins;
+        console.log(userBalance);
+
+        let usernamePlaceholder = document.querySelector('.username');
+        usernamePlaceholder.innerHTML = fullUserName;
     
-    })
-}*/
+    }).catch(err => {
+        console.log(err)
+    });
+}
+
+getUserData();
 
 
-
-//get/update Balance
-/*let getBalance = () => {
-    fetch('',{
-        method: "get",
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        
-    }).then(response =>{
-        return response.json();
-    }).then(json =>{
-       
-    
-    })
-}*/
 
 
