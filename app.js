@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const config = require('config');
+const passport = require('./passport/passport');
+
 
 
 var indexRouter = require('./routes/index');
@@ -13,6 +15,10 @@ var apiLeaderboardRouter = require('./routes/api/v1/leaderboard');
 
 
 const mongoose = require('mongoose');
+//const passport = require('passport');
+
+
+
 // use current version
 mongoose.set('useCreateIndex', true);
 mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true});
@@ -31,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/v1/transfers', apiTransfersRouter);
+app.use('/api/v1/transfers', passport.authenticate("jwt", { session: false}), apiTransfersRouter);
 app.use('/api/v1/leaderboard', apiLeaderboardRouter);
 
 // catch 404 and forward to error handler

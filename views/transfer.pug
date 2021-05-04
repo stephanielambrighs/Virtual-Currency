@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+
+  label(for='receiver') Receiver
+  br
+  input#receiver(type='text' name='Receiver')
+  br
+  label(for='amount') amount
+  br
+  input#amount(type='text')
+  br
+
+  label(for='reason') Reason:
+  select#reason
+    option(value='Development help') Development help
+    option(value='Design help') Design help
+    option(value='Feedback') Feedback
+    option(value='Meeting deadlines') Meeting deadlines
+    option(value='Other') Other
+
+
+  br
+  label(for='description') description
+  br
+  input#description(type='text')
+  br
+  br
+  input#btn(type='submit' value='Submit')
+
+   
+   
+
+
+  script(src='./javascripts/transferFrontend.js')
