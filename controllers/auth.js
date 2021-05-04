@@ -3,14 +3,16 @@ const jwt = require('jsonwebtoken');
 
 const signUp = async (req, res, next) => {
     let fullname = req.body.fullname;
-   let username = req.body.username;
-   let password = req.body.password;
-   let coins = req.body.coins;
+    let username = req.body.username;
+    let email = req.body.email;
+    let password = req.body.password;
+    let coins = req.body.coins;
 
     const user = new User({
         fullname: fullname,
-       username: username,
-       coins: coins
+        username: username,
+        email: email,
+        coins: coins
     });
 
     await user.setPassword(password);
@@ -22,7 +24,7 @@ const signUp = async (req, res, next) => {
 
         res.json({
             "status": "success",
-           "data":{
+            "data":{
                 "token": token
             }
         })
@@ -39,7 +41,7 @@ const signUp = async (req, res, next) => {
 const logIn = async (req, res, next) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
         res.json({
-            "status": "succes",
+            "status": "success",
             "data": {
                 "user": result
             }
