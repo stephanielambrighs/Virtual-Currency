@@ -13,7 +13,6 @@ let printTransfers = () => {
         return response.json();
     }).then(json =>{
         let transferList = document.querySelector('.transferList');
-        let test = document.querySelector('.test');
     
         json.data.forEach(element => {
 

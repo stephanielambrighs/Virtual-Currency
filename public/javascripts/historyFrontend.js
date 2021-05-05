@@ -1,8 +1,8 @@
 // nog checken of het een transfer voor de user van dit acc is
 
-//print transfers
+//print all transfers
 let printTransfers = () => {
-    fetch('http://localhost:3000/api/v1/transfers',{
+    fetch('http://localhost:3000/api/v1/transfers/allT',{
         method: "get",
         headers:{
             'Content-Type': 'application/json',
@@ -13,16 +13,18 @@ let printTransfers = () => {
     }).then(response =>{
         return response.json();
     }).then(json =>{
-        let transferList = document.querySelector('.transferList');
-        let test = document.querySelector('.test');
-    
+   
+    console.log(json);
         json.data.forEach(element => {
-            
-            // met insertAdjacentHTML werken om grotere blokken toe te voegen
+            let transferList = document.querySelector('.transferList');
 
-            transfer = document.createElement('li');
-            transfer.append(element.userFrom);
-            transferList.append(transfer);
+            let transfer =` <p>${element.userFrom} to ${element.userTo} amount ${element.coins}</p>`
+        
+                
+            transferList.insertAdjacentHTML('afterbegin', transfer)
+    
+            /*let usernamePlaceholder = document.querySelector('.transferList');
+            usernamePlaceholder.innerHTML = json.user[0].fullname;*/
     
         });
     
