@@ -53,5 +53,11 @@ let postUser = () => {
         return response.json();
     }).then(json => {
        console.log(json);
+
+        if(json.status === "success"){
+            let token = json.data.token;
+            localStorage.setItem("token", token);
+            window.location.href = "/login";
+        }
     })
 }

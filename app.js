@@ -15,7 +15,6 @@ var apiLeaderboardRouter = require('./routes/api/v1/leaderboard');
 
 
 const mongoose = require('mongoose');
-//const passport = require('passport');
 
 
 
@@ -38,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1/transfers', passport.authenticate("jwt", { session: false}), apiTransfersRouter);
-app.use('/api/v1/leaderboard', apiLeaderboardRouter);
+app.use('/api/v1/leaderboard', passport.authenticate("jwt", { session: false}), apiLeaderboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
