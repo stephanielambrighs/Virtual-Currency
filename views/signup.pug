@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1='Nice to meet you!'
+  h2='Sign up to Currency app'
+
+  label(for='fullname') Fullname
+  input#fullname(type='text' name='fullname')
+  br
+  label(for='username') Username
+  input#username(type='text' name='username')
+  br
+  label(for='email' name='email') Email
+  input#email(type='text' name='email')
+  br
+  label(for='password' name='password') Password
+  input#password(type='password' name='password')
+  br
+  input#btn-submit(type='submit' value='submit')
+
+
+
+
+  script(src='./javascripts/signupFrontend.js')

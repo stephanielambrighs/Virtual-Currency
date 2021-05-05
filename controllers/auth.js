@@ -1,35 +1,49 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 const signUp = async (req, res, next) => {
-    // let firstname = req.body.firstname;
-    // let lastName = req.body.lastName;
+    let fullname = req.body.fullname;
     let username = req.body.username;
+    let email = req.body.email;
     let password = req.body.password;
     let coins = req.body.coins;
 
     const user = new User({
-        // firstName: firstName,
-        // lastName: lastName,
+        fullname: fullname,
         username: username,
+        email: email,
         coins: coins
     });
+
     await user.setPassword(password);
     await user.save().then(result =>{
+        console.log(result);
+
+        let token = jwt.sign({
+            uid: result._id,
+            username: result.username,
+        }, "MyVerySecretWord");
+
         res.json({
-            "status": "success"
+            "status": "success",
+            "data":{
+                "token": token
+            }
         })
     }).catch(error => {
         res.json({
             "status": "failed"
         })
     });
+
+
 }
 
 // has to filt in the correct username and password
 const logIn = async (req, res, next) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
         res.json({
-            "status": "succes",
+            "status": "success",
             "data": {
                 "user": result
             }
