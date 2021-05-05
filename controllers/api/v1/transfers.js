@@ -45,25 +45,51 @@ function createCoin(req, res) {
     let newSenderCoins = req.user.coins - req.body.coins;
     console.log(oldSenderCoins, newSenderCoins);
 
+    User.findOneAndUpdate({
+        "fullname": req.user.fullname
+    }, { coins: newSenderCoins }, (err, doc) => {
+        console.log(doc, 'user sender');
+    })
+
+
     //find coins receiver
     User.find({
-        "fullname": transfer.userTo,
+        "fullname": transfer.userTo
     },
         (err, doc) => {
-            console.log(doc, 'sdgsdg');
+
+            if (!err) {
+                console.log(doc, 'user receiver');
+                console.log(doc[0].coins, 'user coins');
+                let oldReceiverCoins = doc[0].coins;
+                let newReceiverCoins = oldReceiverCoins + transfer.coins;
+                console.log(newReceiverCoins);
+
+                User.findOneAndUpdate({
+                    "fullname": transfer.userTo
+                }, { coins: newReceiverCoins }, (err, doc) => {
+                    console.log(doc, 'user receiver');
+                })
+
+            }
+            else {
+                doc.send(err);
+            }
 
 
-            transfer.save(function (err, result) {
-                if (!err) {
-                    res.json(result);
-                    console.log(result);
-                }
-                else {
-                    res.send(err);
-                }
-            });
 
         });
+
+    transfer.save(function (err, result) {
+        if (!err) {
+            res.json(result);
+            console.log(result, 'transfer');
+        }
+        else {
+            res.send(err);
+        }
+    });
+
 
 }
 
