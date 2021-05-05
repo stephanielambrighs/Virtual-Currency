@@ -32,6 +32,10 @@ function getAllT(req, res) {
 };*/
 
 
+
+
+
+
 //voorwaarden om coins te kunnen/mogen sturen nog toevoegen
 function createCoin(req, res) {
     let transfer = new Transfer();
@@ -45,51 +49,90 @@ function createCoin(req, res) {
     let newSenderCoins = req.user.coins - req.body.coins;
     console.log(oldSenderCoins, newSenderCoins);
 
-    User.findOneAndUpdate({
-        "fullname": req.user.fullname
-    }, { coins: newSenderCoins }, (err, doc) => {
-        console.log(doc, 'user sender');
-    })
 
+    User.find({ "fullname": req.user.fullname }, (err, docS) => {
+        User.find({ "fullname": transfer.userTo }, (errR, docR) => {
+            console.log(docS);
+            console.log(docR);
 
-    //find coins receiver
-    User.find({
-        "fullname": transfer.userTo
-    },
-        (err, doc) => {
-
-            if (!err) {
-                console.log(doc, 'user receiver');
-                console.log(doc[0].coins, 'user coins');
-                let oldReceiverCoins = doc[0].coins;
-                let newReceiverCoins = oldReceiverCoins + transfer.coins;
-                console.log(newReceiverCoins);
-
-                User.findOneAndUpdate({
-                    "fullname": transfer.userTo
-                }, { coins: newReceiverCoins }, (err, doc) => {
-                    console.log(doc, 'user receiver');
+            if (docR[0] == null) {
+                res.json({
+                    "status": "error",
+                    "message": "De user waar je coins naar wilde sturen is niet gevonden",
                 })
+            } else {
+                if (docS[0].fullname == docR[0].fullname) {
+                    res.json({
+                        "status": "error",
+                        "message": "je kan geen coins naar jezelf sturen",
+                    })
+                } else {
+                    if (docS[0].coins >= req.body.coins) {
+                        if (transfer.coins == 0) {
+                            res.json({
+                                "status": "error",
+                                "message": "je moet meer dan 0 coins per keer sturen.",
+                            })
+                        } else {
+                            let coinSend = req.body.coins
+                            if (coinSend < 0) {
+                                res.json({
+                                    "status": "error",
+                                    "message": "je kan geen negatieve bedragen sturen!",
+                                })
+                            } else {
+                                if (docS.length) {
+                                    transfer.save((err, doc) => {
+                                        if (err) {
+                                            res.json({
+                                                "status": "error",
+                                                "message": "Er is iets misgelopen, de coins zijn niet verstuurd",
+                                            })
+                                        }
+                                        if (!err) {
+                                            res.json({
+                                                "status": "success",
+                                                "message": "Coins verstuurd",
+                                                "data": {
+                                                    "transaction": doc,
+                                                }
+                                            })
+                                        }
+                                    })
 
+                                    //find and update user coins
+                                    User.findOneAndUpdate({
+                                        "fullname": req.user.fullname
+                                    }, { coins: newSenderCoins }, (err, doc) => { })
+
+                                    let oldReceiverCoins = docR[0].coins
+                                    let newReceiverCoins = oldReceiverCoins + transfer.coins
+                                    //find and update user coins
+                                    User.findOneAndUpdate({
+                                        "fullname": docR[0].fullname
+                                    }, { coins: newReceiverCoins }, (err, doc) => { })
+
+
+                                } else {
+                                    res.json({
+                                        "status": "error",
+                                        "message": "De user waar je coins naar wilde sturen is niet gevonden",
+                                    })
+                                }
+                            }
+                        }
+
+                    } else {
+                        res.json({
+                            "status": "error",
+                            "message": "je balans is niet groot genoeg",
+                        })
+                    }
+                }
             }
-            else {
-                doc.send(err);
-            }
-
-
-
-        });
-
-    transfer.save(function (err, result) {
-        if (!err) {
-            res.json(result);
-            console.log(result, 'transfer');
-        }
-        else {
-            res.send(err);
-        }
+     
     });
-
+});
 
 }
 
