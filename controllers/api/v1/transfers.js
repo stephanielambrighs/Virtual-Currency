@@ -34,8 +34,6 @@ function getAllT(req, res) {
 
 
 
-
-
 //voorwaarden om coins te kunnen/mogen sturen nog toevoegen
 function createCoin(req, res) {
     let transfer = new Transfer();
@@ -150,6 +148,16 @@ const getUser = (req, res) => {
     })
 }
 
+const getAllUsers = (req, res) => {
+    User.find({}, (err,docs) => {
+        res.json({
+            "status": "success",
+            "users": docs
+        })
+    })
+}
+
+
 
 
 
@@ -158,3 +166,4 @@ module.exports.getAllT = getAllT;
 /*module.exports.getOneT= getOneT;*/
 module.exports.createCoin = createCoin;
 module.exports.getUser = getUser;
+module.exports.getAllUsers = getAllUsers;

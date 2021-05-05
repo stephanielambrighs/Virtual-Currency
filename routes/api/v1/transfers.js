@@ -10,6 +10,10 @@ router.post("/", transfersController.createCoin);
 
 router.get("/user", transfersController.getUser);
 
+router.get("/allUsers", transfersController.getAllUsers)
+
+
+
 
 
 
