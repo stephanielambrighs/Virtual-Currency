@@ -8,14 +8,14 @@
 // window.location.href = "/";
 
 
-let btn = document.querySelector('#btn-submit');
+let btnSignUp = document.querySelector('#btn-submit');
 let fullname = '';
 let username = '';
 let email = '';
 let password = '';
 let coins = '';
 
-btn.addEventListener('click', function(e){
+btnSignUp.addEventListener('click', function(e){
     console.log("click");
     fullname = document.querySelector('#fullname').value;
     username = document.querySelector('#username').value;

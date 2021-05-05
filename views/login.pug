@@ -1,4 +1,18 @@
 extends layout
 
 block content
-  h1='Login!'
+  h1='Welcome back!'
+  h2='Log in to Currency app'
+
+  label(for='username') Username
+  input#username(type='text' name='username')
+  br
+  label(for='password' name='password') Password
+  input#password(type='password' name='password')
+  br
+  input#btn-submit(type='submit' value='submit')
+
+
+
+
+  script(src='./javascripts/loginFrontend.js')
