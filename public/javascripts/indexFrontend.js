@@ -1,3 +1,6 @@
+//const { json } = require("express");
+//const Primus = require("primus");
+
 // PRIMUS LIVE 
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
@@ -6,6 +9,13 @@ primus = Primus.connect('http://localhost:3000', {
       , retries: 10 // Number: How many times we should try to reconnect.
     }
 });
+
+primus.on('data', (json) => {
+    if(json.action === "addTransfer") {
+        printTransfers()
+    }
+})
+
 
 //print transfers
 let printTransfers = () => {

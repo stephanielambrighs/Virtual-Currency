@@ -6,11 +6,11 @@ let go = (server) => {
     primus.on('connection', (spark) => {
         console.log('Received spark')
 
-       /* spark.on('data', (data) => {
+        spark.on('data', (data) => {
             console.log(data)
             console.log("data received")
             primus.write(data); 
-        });*/
+        });
     });
 }
 

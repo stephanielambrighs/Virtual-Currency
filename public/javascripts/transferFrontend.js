@@ -1,5 +1,16 @@
 //to do : use form input
 
+//const Primus = require("primus");
+
+/* Primus live */
+primus = Primus.connect('http://localhost:3000', {
+  reconnect: {
+      max: Infinity,
+      min: 500,
+      retries: 10
+  }
+})
+
 let btn = document.querySelector('#btn');
 let userFrom;
 let userTo = '';
@@ -44,6 +55,11 @@ let postTransfer = () => {
         return response.json();
     }).then(json => {
        console.log(json);
+
+       primus.write({
+         "action": 'addTransfer',
+         "data": json
+       })
 
     }).catch(err => {
         console.log(err)
