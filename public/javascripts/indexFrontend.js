@@ -16,6 +16,8 @@ primus.on('data', (json) => {
         console.log(json.data.data);
         let transfer =` <p>${json.data.data.transfer.userFrom} to ${json.data.data.transfer.userTo} amount ${json.data.data.transfer.coins}</p>`
         transferList.insertAdjacentHTML('afterbegin', transfer)    }
+
+        getUserData();
 })
 
 
