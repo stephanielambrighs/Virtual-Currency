@@ -1,5 +1,6 @@
 //const { json } = require("express");
 //const Primus = require("primus");
+let transferList = document.querySelector('.transferList');
 
 // PRIMUS LIVE 
 primus = Primus.connect('http://localhost:3000', {
@@ -12,8 +13,9 @@ primus = Primus.connect('http://localhost:3000', {
 
 primus.on('data', (json) => {
     if(json.action === "addTransfer") {
-        printTransfers()
-    }
+        console.log(json.data.data);
+        let transfer =` <p>${json.data.data.transfer.userFrom} to ${json.data.data.transfer.userTo} amount ${json.data.data.transfer.coins}</p>`
+        transferList.insertAdjacentHTML('afterbegin', transfer)    }
 })
 
 
@@ -29,7 +31,6 @@ let printTransfers = () => {
     }).then(response =>{
         return response.json();
     }).then(json =>{
-        let transferList = document.querySelector('.transferList');
     
         json.data.forEach(element => {
 
@@ -51,6 +52,8 @@ let printTransfers = () => {
 
 printTransfers();
 
+
+
 // get user
 let fullUserName;
 let getUserData = () => {
@@ -69,6 +72,8 @@ let getUserData = () => {
 
         let usernamePlaceholder = document.querySelector('.username');
         usernamePlaceholder.innerHTML = json.user[0].fullname;
+
+
     
     }).catch(err => {
         console.log(err)
