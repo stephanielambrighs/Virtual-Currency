@@ -1,6 +1,6 @@
 //const { json } = require("express");
 //const Primus = require("primus");
-let transferList = document.querySelector('.transferList');
+let transferList = document.querySelector('.card__list');
 
 // PRIMUS LIVE 
 primus = Primus.connect('http://localhost:3000', {
@@ -36,12 +36,20 @@ let printTransfers = () => {
     
         json.data.forEach(element => {
 
-           /* if(element.userTo == firstName +" "+lastName) { 
-                var name = element.userFrom
-                var sign = "+"
-              }*/
+       //datum nog meegeven aan db en uitprinten
 
-            let transfer =` <p>${element.userFrom} to ${element.userTo} amount ${element.coins}</p>`
+          let transfer = `<li class='card__item'>
+          <div class='card__transferInfo'>
+              <p class='card__name'>${element.userFrom}</p>
+              <p class='card__date'>10/05/2021</p>
+          </div>
+          <div class='card__coinInfo'>
+              <p class='card__coinsAmount'>${element.coins}</p>
+          </div>
+      </li>` 
+          
+
+
         
                 
             transferList.insertAdjacentHTML('afterbegin', transfer)

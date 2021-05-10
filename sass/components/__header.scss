@@ -1,0 +1,40 @@
+.header{
+    padding: 2em;
+
+    &__user{
+        display: flex;
+        justify-content: flex-end;
+        gap: 1em;
+    }
+    
+    &__img{
+        border-radius: 50%;
+        width: 3.5em;
+    }
+    
+    &__name{
+        color: white;
+        font-weight: 100;
+        font-size: 1.3em;
+    }
+    
+    &__coins{
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+     
+    }
+    
+    &__coinsIcon{
+        width: 2em;
+    }
+    
+    &__coinsAmount{
+        color: #F6B850;
+        font-size: 2em;
+        font-weight: 550;
+    }
+      
+   }
+   
+  
