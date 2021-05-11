@@ -44,7 +44,7 @@ let printTransfers = () => {
               <p class='card__date'>10/05/2021</p>
           </div>
           <div class='card__coinInfo'>
-              <p class='card__coinsAmount'>${element.coins}</p>
+              <p class='card__coinsAmount'>${element.coins} coins</p>
           </div>
       </li>` 
           
@@ -78,9 +78,12 @@ let getUserData = () => {
         return response.json();
     }).then(json =>{
         userBalance = json.user[0].coins;
+        let coinsPlaceholder = document.querySelector('.header__coinsAmount');
+        coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
+
         console.log(userBalance);
 
-        let usernamePlaceholder = document.querySelector('.username');
+        let usernamePlaceholder = document.querySelector('.header__name');
         usernamePlaceholder.innerHTML = json.user[0].fullname;
 
 

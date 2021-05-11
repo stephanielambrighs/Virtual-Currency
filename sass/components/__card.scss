@@ -1,7 +1,8 @@
 .card{
     background-color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 1em;
+    margin-bottom: 5em;
     overflow: scroll;
 
     .card__list{
@@ -14,11 +15,11 @@
         background-color: #1058A1;
         border-radius: 5px;
         padding-top: 0.5em;
-        padding-bottom: 0.5em;
+        padding-bottom: 1em;
         margin: 1em;
         padding-left: 1em;
         display: flex;
-        gap: 6em;
+        gap: 2em;
         color: white;
     }
     
@@ -26,8 +27,8 @@
         margin-top: 0.2em;
         margin-bottom: 0;
         padding: 0;
-        font-size: 1.5em;
-        width: 5em;
+        font-size: 1.3em;
+        width: 10em;
     }
     
     &__date{
