@@ -1,8 +1,24 @@
-// nog checken of het een transfer voor de user van dit acc is
+let transferList = document.querySelector('.transferList');
 
-//print transfers
+// PRIMUS LIVE 
+primus = Primus.connect('http://localhost:3000', {
+    reconnect: {
+        max: Infinity // Number: The max delay before we try to reconnect.
+      , min: 500 // Number: The minimum delay before we try reconnect.
+      , retries: 10 // Number: How many times we should try to reconnect.
+    }
+});
+
+primus.on('data', (json) => {
+    if(json.action === "addTransfer") {
+        console.log(json.data.data);
+        let transfer =` <p>${json.data.data.transfer.userFrom} to ${json.data.data.transfer.userTo} amount ${json.data.data.transfer.coins}</p>`
+        transferList.insertAdjacentHTML('afterbegin', transfer)    }
+})
+
+//print all transfers
 let printTransfers = () => {
-    fetch('http://localhost:3000/api/v1/transfers',{
+    fetch('http://localhost:3000/api/v1/transfers/allT',{
         method: "get",
         headers:{
             'Content-Type': 'application/json',
@@ -13,16 +29,17 @@ let printTransfers = () => {
     }).then(response =>{
         return response.json();
     }).then(json =>{
-        let transferList = document.querySelector('.transferList');
-        let test = document.querySelector('.test');
-    
+   
+    console.log(json);
         json.data.forEach(element => {
-            
-            // met insertAdjacentHTML werken om grotere blokken toe te voegen
 
-            transfer = document.createElement('li');
-            transfer.append(element.userFrom);
-            transferList.append(transfer);
+            let transfer =` <p>${element.userFrom} to ${element.userTo} amount ${element.coins}</p>`
+        
+                
+            transferList.insertAdjacentHTML('afterbegin', transfer)
+    
+            /*let usernamePlaceholder = document.querySelector('.transferList');
+            usernamePlaceholder.innerHTML = json.user[0].fullname;*/
     
         });
     

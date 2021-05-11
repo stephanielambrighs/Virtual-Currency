@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p.username test
+  p.username 
 
   ul.transferList
    
@@ -11,5 +11,7 @@ block content
 
   a(href='./test') link text
 
+  script(src="http://localhost:3000/primus/primus.js")
   script(src='./javascripts/indexFrontend.js')
+
 
