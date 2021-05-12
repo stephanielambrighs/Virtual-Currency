@@ -38,6 +38,11 @@
         margin: 0;
         padding: 0;
     }
+
+    &__list a{
+        text-decoration: none;
+
+    }
     
     &__item{
         background-color: #1058A1;

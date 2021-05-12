@@ -402,6 +402,9 @@ template {
   margin: 0;
   padding: 0;
 }
+.card__list a {
+  text-decoration: none;
+}
 .card__item {
   background-color: #1058A1;
   border-radius: 5px;
