@@ -377,10 +377,11 @@ template {
 }
 .card__form {
   color: white;
-  width: 15em;
+  width: 57%;
   margin-left: auto;
   margin-right: auto;
-  padding: 5em;
+  padding-top: 5em;
+  padding-bottom: 5em;
 }
 .card__form input {
   width: 15em;
@@ -463,6 +464,26 @@ template {
 
   .card__name {
     width: 9em;
+  }
+
+  .card--form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card__form {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card__form input {
+    width: 100%;
+  }
+
+  .card__form select {
+    width: 100%;
   }
 }
 .header {
