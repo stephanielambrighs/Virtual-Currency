@@ -3,7 +3,6 @@
     border-radius: 15px;
     padding: 1em;
     margin-bottom: 5em;
-    overflow: scroll;
 
     &--form {
         background-color: #1058A1;
@@ -108,7 +107,7 @@
 
 }
 
-@media(min-width:750px){
+@media(min-width:800px){
 
     .card__list{
         display: flex;

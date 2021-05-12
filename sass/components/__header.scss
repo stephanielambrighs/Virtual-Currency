@@ -38,5 +38,93 @@
     }
       
    }
+
+   .headerD{
+    display: none;
+}
+
+@media(min-width:800px){
+    .header{
+        display: none;
+    }
+
+    .headerD{
+        display: flex;
+        gap: 35%;
+        background-color: #1058A1;
+
+    }
+    
+    .headerD__links{
+        display: flex;
+    }
+    
+    .headerD__links a{
+        text-decoration: none;
+    }
+    
+    .headerD__item{
+           display: flex; 
+           padding: 1em;
+    }
+    
+    .headerD__item p{
+        padding-top: 0.9em;
+        padding-left: 0.5em;
+        color: white;
+    }
+
+}
+
+
+@media(min-width:1000px){
+
+
+    .headerD{
+        gap: 40%;
+
+    }
+    
+
+
+}
+
+@media(min-width:1200px){
+
+
+    .headerD{
+        gap: 55%;
+
+    }
+    
+
+
+}
+
+
+@media(min-width:1500px){
+
+
+    .headerD{
+        gap: 65%;
+
+    }
+    
+
+
+}
+
+
+@media(min-width:1900px){
+
+
+    .headerD{
+        gap: 70%;
+
+    }
+    
+
+
+}
    
   

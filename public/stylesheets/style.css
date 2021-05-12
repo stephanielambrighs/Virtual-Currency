@@ -362,12 +362,16 @@ template {
   padding-top: 0;
 }
 
+@media (min-width: 800px) {
+  .nav {
+    display: none;
+  }
+}
 .card {
   background-color: white;
   border-radius: 15px;
   padding: 1em;
   margin-bottom: 5em;
-  overflow: scroll;
 }
 .card--form {
   background-color: #1058A1;
@@ -452,7 +456,7 @@ template {
   font-weight: bold;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 800px) {
   .card__list {
     display: flex;
     flex-wrap: wrap;
@@ -518,6 +522,71 @@ template {
   font-weight: 550;
 }
 
+.headerD {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .header {
+    display: none;
+  }
+
+  .headerD {
+    display: flex;
+    gap: 35%;
+    background-color: #1058A1;
+  }
+
+  .headerD__links {
+    display: flex;
+  }
+
+  .headerD__links a {
+    text-decoration: none;
+  }
+
+  .headerD__item {
+    display: flex;
+    padding: 1em;
+  }
+
+  .headerD__item p {
+    padding-top: 0.9em;
+    padding-left: 0.5em;
+    color: white;
+  }
+}
+@media (min-width: 1000px) {
+  .headerD {
+    gap: 40%;
+  }
+}
+@media (min-width: 1200px) {
+  .headerD {
+    gap: 55%;
+  }
+}
+@media (min-width: 1500px) {
+  .headerD {
+    gap: 65%;
+  }
+}
+@media (min-width: 1900px) {
+  .headerD {
+    gap: 70%;
+  }
+}
+.footer {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .footer {
+    background-color: #1058A1;
+    color: white;
+    padding: 0.5em;
+  }
+}
 .container {
   background-color: #1058A1;
 }
