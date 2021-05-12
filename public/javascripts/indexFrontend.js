@@ -14,8 +14,18 @@ primus = Primus.connect('http://localhost:3000', {
 primus.on('data', (json) => {
     if(json.action === "addTransfer") {
         console.log(json.data.data);
-        let transfer =` <p>${json.data.data.transfer.userFrom} to ${json.data.data.transfer.userTo} amount ${json.data.data.transfer.coins}</p>`
-        transferList.insertAdjacentHTML('afterbegin', transfer)    }
+        let transfer = `<li class='card__item'>
+        <div class='card__transferInfo'>
+            <p class='card__name'>${json.data.data.transfer.userFrom}</p>
+            <p class='card__date'>10/05/2021</p>
+        </div>
+        <div class='card__coinInfo'>
+            <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
+        </div>
+    </li>` 
+
+        transferList.insertAdjacentHTML('afterbegin', transfer)    
+    }
 
         getUserData();
 })

@@ -34,8 +34,8 @@ function getAllT(req, res) {
 
 
 //haal een specifieke transfer uit de databank
-/*function getOneT(req, res) {
-                    Transfer.findOne({ id: req.params.id }, function (err, docs) {
+function getOneT(req, res) {
+                    Transfer.findOne({ _id: req.params.id }, function (err, docs) {
                         if (!err) {
                             res.json({
                                 "status": "success transfer:id",
@@ -44,7 +44,7 @@ function getAllT(req, res) {
                         }
                     })
 
-                };*/
+                };
 
 
 
@@ -181,7 +181,7 @@ const getAllUsers = (req, res) => {
 
 module.exports.getAllIncomingT = getAllIncomingT;
 module.exports.getAllT = getAllT;
-/*module.exports.getOneT= getOneT;*/
+module.exports.getOneT= getOneT;
 module.exports.createCoin = createCoin;
 module.exports.getUser = getUser;
 module.exports.getAllUsers = getAllUsers;

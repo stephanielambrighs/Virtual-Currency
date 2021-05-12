@@ -405,22 +405,15 @@ template {
 .card__coinsAmount {
   margin-top: 0.5em;
   padding: 0;
-  margin-bottom: 0;
   color: #F6B850;
   font-size: 1.5em;
   font-weight: bold;
 }
-.card__arrow {
-  font-size: 1.5em;
-  font-weight: bolder;
+.card .card__arrow {
+  font-size: 3em;
   margin: 0;
   padding: 0;
-}
-.card .arrow__negative {
   color: red;
-}
-.card .arrow__positive {
-  color: #1cfd1c;
 }
 
 .header {
@@ -458,5 +451,6 @@ template {
 .container {
   background-color: #1058A1;
 }
+
 
 /*# sourceMappingURL=style.css.map */
