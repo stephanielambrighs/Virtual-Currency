@@ -29,4 +29,8 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
+router.get('/transferDetail', function(req, res, next) {
+  res.render('transferDetail');
+});
+
 module.exports = router;

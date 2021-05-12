@@ -48,7 +48,8 @@ let printTransfers = () => {
 
        //datum nog meegeven aan db en uitprinten
 
-          let transfer = `<li class='card__item'>
+          let transfer = `<a href="./transferDetail?id=${element._id}">
+          <li class='card__item'>
           <div class='card__transferInfo'>
               <p class='card__name'>${element.userFrom}</p>
               <p class='card__date'>10/05/2021</p>
@@ -56,7 +57,8 @@ let printTransfers = () => {
           <div class='card__coinInfo'>
               <p class='card__coinsAmount'>${element.coins} coins</p>
           </div>
-      </li>` 
+      </li>
+      </a>` 
           
 
 

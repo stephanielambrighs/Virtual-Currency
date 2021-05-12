@@ -44,8 +44,8 @@ let printTransfers = () => {
             console.log(fullUserName);
 
             if (element.userFrom === fullUserName) {
-                console.log('yes');
-                let transfer = `<li class='card__item'>
+                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                <li class='card__item'>
                 <div class='card__transferInfo'>
                 <p class='card__name'> From: ${element.userFrom}</p>
                 <p class='card__name'> To: ${element.userTo}</p>
@@ -55,13 +55,14 @@ let printTransfers = () => {
                     <p class='card__coinsAmount'>${element.coins} coins</p>
                     <p class='card__arrow arrow__negative'>&#8594;</p>
                 </div>
-            </li>`
+            </li>
+            </a>`
 
                 transferList.insertAdjacentHTML('afterbegin', transfer)
 
             } else {
-                console.log('no');
-                let transfer = `<li class='card__item'>
+                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                <li class='card__item'>
                 <div class='card__transferInfo'>
                     <p class='card__name'> From: ${element.userFrom}</p>
                     <p class='card__name'> To: ${element.userTo}</p>
@@ -71,7 +72,8 @@ let printTransfers = () => {
                     <p class='card__coinsAmount'>${element.coins} coins</p>
                     <p class='card__arrow arrow__positive'>&#8592;</p>
                 </div>
-            </li>`
+            </li>
+            </a>`
 
                 transferList.insertAdjacentHTML('afterbegin', transfer)
             }
