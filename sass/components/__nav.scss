@@ -1,0 +1,42 @@
+.nav{
+    display: flex;
+    gap: 20%;
+    justify-content: center;
+    padding-top: 1em;
+    background-color: #1058A1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    &__item{
+        color: white;
+    }
+    
+    &__icon{
+        width: 2em;
+        margin-bottom: 0;
+        padding-bottom: 0.2em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    &__text{
+        margin-top: 0;
+        padding-top: 0;
+    }
+   
+}
+
+
+
+@media(min-width:800px){
+   .nav{
+       display: none;
+   }
+
+   
+
+}
+
+
+
