@@ -11,7 +11,7 @@ primus = Primus.connect('http://localhost:3000', {
   }
 })
 
-let btn = document.querySelector('#btn');
+let btn = document.querySelector('#card__btn');
 let userFrom;
 let userTo = '';
 let coins = '';
@@ -20,16 +20,16 @@ let description = '';
 
 btn.addEventListener('click', function (e) {
     userTo = document.querySelector('#receiver').value;
-    coins = document.querySelector('#amount').value;
-    reason = document.querySelector('#reason').value;
-    description = document.querySelector('#description').value;
+    coins = document.querySelector('#card__amount').value;
+    reason = document.querySelector('#card__reason').value;
+    description = document.querySelector('#card__description').value;
 
     postTransfer();
 
     userTo = document.querySelector('#receiver').value = "";
-    coins = document.querySelector('#amount').value ="";
-    reason = document.querySelector('#reason').value="";
-    description = document.querySelector('#description').value="";
+    coins = document.querySelector('#card__amount').value ="";
+    reason = document.querySelector('#card__reason').value="";
+    description = document.querySelector('#card__description').value="";
 
     console.log(userTo, coins, description);
 })

@@ -369,7 +369,30 @@ template {
   margin-bottom: 5em;
   overflow: scroll;
 }
-.card .card__list {
+.card--form {
+  background-color: #1058A1;
+  width: 27em;
+  overflow: hidden;
+  margin: 1em;
+}
+.card__form {
+  color: white;
+  width: 15em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5em;
+}
+.card__form input {
+  width: 15em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 8%;
+}
+.card__form select {
+  width: 15em;
+  margin-bottom: 1em;
+}
+.card__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -401,10 +424,10 @@ template {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding-right: 0.5em;
 }
 .card__coinsAmount {
   margin-top: 0.5em;
-  padding: 0;
   margin-bottom: 0;
   color: #F6B850;
   font-size: 1.5em;
@@ -422,7 +445,26 @@ template {
 .card .arrow__positive {
   color: #1cfd1c;
 }
+.card #card__btn {
+  background-color: #F6B850;
+  color: #1058A1;
+  font-weight: bold;
+}
 
+@media (min-width: 750px) {
+  .card__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card__item {
+    width: 20em;
+  }
+
+  .card__name {
+    width: 9em;
+  }
+}
 .header {
   padding: 2em;
   background-color: #1058A1;
