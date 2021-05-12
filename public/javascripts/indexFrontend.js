@@ -17,7 +17,7 @@ primus.on('data', (json) => {
         let transfer = `<li class='card__item'>
         <div class='card__transferInfo'>
             <p class='card__name'>${json.data.data.transfer.userFrom}</p>
-            <p class='card__date'>10/05/2021</p>
+            <p class='card__date'>${json.data.data.transfer.date}</p>
         </div>
         <div class='card__coinInfo'>
             <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
@@ -52,7 +52,7 @@ let printTransfers = () => {
           <li class='card__item'>
           <div class='card__transferInfo'>
               <p class='card__name'>${element.userFrom}</p>
-              <p class='card__date'>10/05/2021</p>
+              <p class='card__date'>${element.date}</p>
           </div>
           <div class='card__coinInfo'>
               <p class='card__coinsAmount'>${element.coins} coins</p>

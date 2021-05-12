@@ -32,7 +32,7 @@ let printTransfer = () => {
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
             <p class="card__name"> To: ${json.data.userTo}</p>                        
-            <p class="card__date">10/05/2021</p>
+            <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
         </div>
@@ -51,7 +51,7 @@ let printTransfer = () => {
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
             <p class="card__name"> To: ${json.data.userTo}</p>                        
-            <p class="card__date">10/05/2021</p>
+            <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
         </div>

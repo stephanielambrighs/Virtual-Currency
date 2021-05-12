@@ -11,18 +11,41 @@ primus = Primus.connect('http://localhost:3000', {
 
 primus.on('data', (json) => {
     if (json.action === "addTransfer") {
-        let transfer = `<li class='card__item'>
-        <div class='card__transferInfo'>
-            <p class='card__name'>${json.data.data.transfer.userFrom}</p>
-            <p class='card__date'>10/05/2021</p>
+        if (json.data.data.transfer.userFrom === fullUserName) {
+        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}">
+        <li class="card__item">
+        <div class="card__transferInfo">
+            <p class="card__name">${json.data.data.transfer.userFrom}</p>
+            <p class='card__name'> To: ${json.data.data.transfer.userTo}</p>
+            <p class="card__date">${json.data.data.transfer.date}</p>
         </div>
-        <div class='card__coinInfo'>
-            <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
+        <div class="card__coinInfo">
+            <p class="card__coinsAmount">${json.data.data.transfer.coins} coins</p>
+            <p class="card__arrow arrow__negative">&#8594;</p>
         </div>
-    </li>`
+    </li>
+    </a>`
 
         transferList.insertAdjacentHTML('afterbegin', transfer)
+    } else {
+        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}"> 
+        <li class="card__item">
+        <div class="card__transferInfo">
+            <p class="card__name">${json.data.data.transfer.userFrom}</p>
+            <p class='card__name'> To: ${json.data.data.transfer.userTo}</p>
+            <p class="card__date">${json.data.data.transfer.date}</p>
+        </div>
+        <div class="card__coinInfo">
+            <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
+            <p class="card__arrow arrow__positive">&#8592;</p>
+
+        </div>
+    </li>
+    </a>`
+    transferList.insertAdjacentHTML('afterbegin', transfer)
+
     }
+}
 })
 
 //print all transfers
@@ -49,7 +72,7 @@ let printTransfers = () => {
                 <div class='card__transferInfo'>
                 <p class='card__name'> From: ${element.userFrom}</p>
                 <p class='card__name'> To: ${element.userTo}</p>
-                    <p class='card__date'>10/05/2021</p>
+                    <p class='card__date'>${element.date}</p>
                 </div>
                 <div class='card__coinInfo'>
                     <p class='card__coinsAmount'>${element.coins} coins</p>
@@ -66,7 +89,7 @@ let printTransfers = () => {
                 <div class='card__transferInfo'>
                     <p class='card__name'> From: ${element.userFrom}</p>
                     <p class='card__name'> To: ${element.userTo}</p>
-                    <p class='card__date'>10/05/2021</p>
+                    <p class='card__date'>${element.date}</p>
                 </div>
                 <div class='card__coinInfo'>
                     <p class='card__coinsAmount'>${element.coins} coins</p>

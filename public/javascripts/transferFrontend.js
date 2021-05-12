@@ -11,6 +11,10 @@ primus = Primus.connect('http://localhost:3000', {
   }
 })
 
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+console.log(date);
+
 let btn = document.querySelector('#card__btn');
 let userFrom;
 let userTo = '';
@@ -49,7 +53,9 @@ let postTransfer = () => {
         "userTo": userTo,
         "coins": coins,
         "reason": reason,
-        "description": description
+        "description": description,
+        "date": date
+
     })    
     }).then(response => {
         return response.json();
