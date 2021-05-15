@@ -1,0 +1,130 @@
+.header{
+    padding: 2em;
+    background-color: #1058A1;
+
+
+    &__user{
+        display: flex;
+        justify-content: flex-end;
+        gap: 1em;
+    }
+    
+    &__img{
+        border-radius: 50%;
+        width: 3.5em;
+    }
+    
+    &__name{
+        color: white;
+        font-weight: 100;
+        font-size: 1.3em;
+    }
+    
+    &__coins{
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+     
+    }
+    
+    &__coinsIcon{
+        width: 2em;
+    }
+    
+    &__coinsAmount{
+        color: #F6B850;
+        font-size: 2em;
+        font-weight: 550;
+    }
+      
+   }
+
+   .headerD{
+    display: none;
+}
+
+@media(min-width:800px){
+    .header{
+        display: none;
+    }
+
+    .headerD{
+        display: flex;
+        gap: 35%;
+        background-color: #1058A1;
+
+    }
+    
+    .headerD__links{
+        display: flex;
+    }
+    
+    .headerD__links a{
+        text-decoration: none;
+    }
+    
+    .headerD__item{
+           display: flex; 
+           padding: 1em;
+    }
+    
+    .headerD__item p{
+        padding-top: 0.9em;
+        padding-left: 0.5em;
+        color: white;
+    }
+
+}
+
+
+@media(min-width:1000px){
+
+
+    .headerD{
+        gap: 40%;
+
+    }
+    
+
+
+}
+
+@media(min-width:1200px){
+
+
+    .headerD{
+        gap: 55%;
+
+    }
+    
+
+
+}
+
+
+@media(min-width:1500px){
+
+
+    .headerD{
+        gap: 65%;
+
+    }
+    
+
+
+}
+
+
+@media(min-width:1900px){
+
+
+    .headerD{
+        gap: 70%;
+
+    }
+    
+
+
+}
+   
+  

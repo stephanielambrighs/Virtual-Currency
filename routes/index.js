@@ -31,7 +31,6 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-
 router.get('/leaderboard', function(req, res, next) {
 
 
@@ -91,5 +90,9 @@ router.get('/leaderboard', function(req, res, next) {
 // } catch (e) {
 //   return req.next()
 // }
+
+router.get('/transferDetail', function(req, res, next) {
+  res.render('transferDetail');
+});
 
 module.exports = router;

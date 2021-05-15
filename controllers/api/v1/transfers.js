@@ -34,31 +34,34 @@ function getAllT(req, res) {
 
 
 //haal een specifieke transfer uit de databank
-/*function getOneT(req, res) {
-                    Transfer.findOne({ id: req.params.id }, function (err, docs) {
-                        if (!err) {
-                            res.json({
-                                "status": "success transfer:id",
-                                "data": docs
-                            })
-                        }
-                    })
+function getOneT(req, res) {
+    Transfer.findOne({ _id: req.params.id }, function (err, docs) {
+        if (!err) {
+            res.json({
+                "status": "success transfer:id",
+                "data": docs
+            })
+        }
+    })
 
-                };*/
+};
 
 
 
 
 //voorwaarden om coins te kunnen/mogen sturen nog toevoegen
 function createCoin(req, res) {
+
+
     let transfer = new Transfer();
     transfer.userFrom = req.user.fullname,
         transfer.coins = req.body.coins,
         transfer.reason = req.body.reason,
         transfer.description = req.body.description,
         transfer.userTo = req.body.userTo
+        transfer.date = req.body.date;
 
-    let oldSenderCoins = req.user.coins;
+        let oldSenderCoins = req.user.coins;
     let newSenderCoins = req.user.coins - req.body.coins;
     //console.log(oldSenderCoins, newSenderCoins);
 
@@ -109,7 +112,10 @@ function createCoin(req, res) {
                                                 "data": {
                                                     "transfer": doc,
                                                 }
+
                                             })
+                                            console.log(doc);
+
                                         }
                                     })
 
@@ -181,7 +187,7 @@ const getAllUsers = (req, res) => {
 
 module.exports.getAllIncomingT = getAllIncomingT;
 module.exports.getAllT = getAllT;
-/*module.exports.getOneT= getOneT;*/
+module.exports.getOneT = getOneT;
 module.exports.createCoin = createCoin;
 module.exports.getUser = getUser;
 module.exports.getAllUsers = getAllUsers;

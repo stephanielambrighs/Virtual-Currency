@@ -6,7 +6,7 @@ router.get("/", transfersController.getAllIncomingT);
 
 router.get("/allT", transfersController.getAllT);
 
-/*router.get("/:id", transfersController.getOneT);*/
+router.get("/id/:id", transfersController.getOneT);
 
 router.post("/", transfersController.createCoin);
 
