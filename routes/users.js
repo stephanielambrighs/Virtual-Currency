@@ -1,4 +1,5 @@
 var express = require('express');
+const { verify } = require('jsonwebtoken');
 var router = express.Router();
 const authController = require('../controllers/auth');
 
