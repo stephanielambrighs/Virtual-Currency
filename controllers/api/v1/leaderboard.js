@@ -1,12 +1,14 @@
 // change leadboard to users-> singup
-const Leaderboard = require('../../../models/leaderboard');
+const { reset } = require('nodemon');
+const User = require('../../../models/user');
+
 
 function getAll(req, res) {
-    Leaderboard.find({}, function (err, docs) {
+    User.find({}, function (err, docs) {
         if (!err) {
             res.json({
                 "status": "success",
-                "data": docs
+                "users": docs
             })
         }
     });
