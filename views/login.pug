@@ -1,18 +1,24 @@
-extends layout
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./stylesheets/style.css')
 
-block content
-  h1='Welcome back!'
-  h2='Log in to Currency app'
-
-  label(for='username') Username
-  input#username(type='text' name='username')
-  br
-  label(for='password' name='password') Password
-  input#password(type='password' name='password')
-  br
-  input#btn-submit(type='submit' value='submit')
-
-
+  div.input-group
+    h1.input-group__h1 Welcome back!
+    h2.input-group__h2 Log in to Currency app
+    label.input-group__label(for='input-group_username') Username
+    br
+    input#input-group__username(type='text' name='username' placeholder='example')
+    br
+    label.input-group__label(for='input-group_password' name='password') Password
+    br
+    input#input-group__password(type='password' name='password' placeholder='******')
+    br
+    input#input-group__btn(type='submit' value='Log in')
+    br
+    a(href='/signup').input-group__link Are you new? Sign up here
 
 
   script(src='./javascripts/loginFrontend.js')
