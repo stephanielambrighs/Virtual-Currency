@@ -1,3 +1,8 @@
+
+if(!localStorage.getItem('token')){
+  window.location.href = "../login";
+}
+
 //to do : use form input
 
 //const Primus = require("primus");
@@ -56,7 +61,7 @@ let postTransfer = () => {
         "description": description,
         "date": date
 
-    })    
+    })
     }).then(response => {
         return response.json();
     }).then(json => {

@@ -1,8 +1,13 @@
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
 //const { json } = require("express");
 //const Primus = require("primus");
 let transferList = document.querySelector('.card__list');
 
-// PRIMUS LIVE 
+// PRIMUS LIVE
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
@@ -22,9 +27,9 @@ primus.on('data', (json) => {
         <div class='card__coinInfo'>
             <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
         </div>
-    </li>` 
+    </li>`
 
-        transferList.insertAdjacentHTML('afterbegin', transfer)    
+        transferList.insertAdjacentHTML('afterbegin', transfer)
     }
 
         getUserData();
@@ -39,11 +44,11 @@ let printTransfers = () => {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        
+
     }).then(response =>{
         return response.json();
     }).then(json =>{
-    
+
         json.data.forEach(element => {
 
        //datum nog meegeven aan db en uitprinten
@@ -58,17 +63,17 @@ let printTransfers = () => {
               <p class='card__coinsAmount'>${element.coins} coins</p>
           </div>
       </li>
-      </a>` 
-          
+      </a>`
 
 
-        
-                
+
+
+
             transferList.insertAdjacentHTML('afterbegin', transfer)
-            
-    
+
+
         });
-    
+
     })
 }
 
@@ -85,7 +90,7 @@ let getUserData = () => {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        
+
     }).then(response =>{
         return response.json();
     }).then(json =>{
@@ -99,7 +104,7 @@ let getUserData = () => {
         usernamePlaceholder.innerHTML = json.user[0].fullname;
 
 
-    
+
     }).catch(err => {
         console.log(err)
     });

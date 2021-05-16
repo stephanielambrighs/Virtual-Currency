@@ -1,3 +1,8 @@
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
 //const { json } = require("express");
 //const Primus = require("primus");
 let transferList = document.querySelector('.card__list');
@@ -31,7 +36,7 @@ let printTransfer = () => {
 
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
-            <p class="card__name"> To: ${json.data.userTo}</p>                        
+            <p class="card__name"> To: ${json.data.userTo}</p>
             <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
@@ -50,7 +55,7 @@ let printTransfer = () => {
             let transfer = `<li class="card__item">
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
-            <p class="card__name"> To: ${json.data.userTo}</p>                        
+            <p class="card__name"> To: ${json.data.userTo}</p>
             <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
