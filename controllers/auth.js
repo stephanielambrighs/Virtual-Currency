@@ -42,7 +42,17 @@ const signUp = async (req, res, next) => {
 // has to fill in the correct username and password
 const logIn = async (req, res, next) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
-
+        // verifyToken,(req, res) => {
+        //     jwt.verify(req.token, 'MyVerySecretWord', (err , authData) => {
+        //         if(err){
+        //             res.sendStatus(403);
+        //         }else{
+        //             res.json({
+        //                 message: "post created"
+        //             });
+        //         }
+        //     });
+        // }
         // if result is not a user
         if(!result.user){
             return res.json({
@@ -69,6 +79,24 @@ const logIn = async (req, res, next) => {
         })
     });
 }
+
+
+// function verifyToken(req, res, next){
+//     const bearerHeader = req.headers['authorization'];
+
+//     if(typeof bearerHeader !== 'undefined'){
+//       const bearer = bearerHeader.split(' ');
+
+//       const bearerToken = bearer[1];
+
+//       req.token = bearerToken;
+
+//       next();
+//     }else{
+//       res.sendStatus(403);
+//     }
+// }
+
 
 
 module.exports.signUp = signUp;

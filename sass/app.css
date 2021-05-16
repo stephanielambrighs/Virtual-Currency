@@ -44,7 +44,8 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -81,7 +82,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -228,7 +230,8 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -262,7 +265,8 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -338,9 +342,13 @@ template {
 }
 
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 20%;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 1em;
   background-color: #1058A1;
   position: fixed;
@@ -362,27 +370,14 @@ template {
   padding-top: 0;
 }
 
-#nav-items__coins {
-  margin-left: 18px;
-}
-
-#nav-items__history {
-  width: 25px;
-  margin-left: 7px;
-}
-
-#nav-items__home {
-  margin-left: 4px;
-}
-
 @media (min-width: 800px) {
   .nav {
     display: none;
   }
 }
 .card {
-  background-color: #FAF9FF;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 15px;
   padding: 1em;
   margin-bottom: 5em;
 }
@@ -425,6 +420,8 @@ template {
   padding-bottom: 1em;
   margin: 1em;
   padding-left: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 2em;
   color: white;
@@ -442,35 +439,24 @@ template {
   padding: 0;
 }
 .card__coinInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   padding-right: 0.5em;
 }
-.card__links {
-  display: grid;
-  grid-template-columns: 25% 53% 10%;
-}
-.card__h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 550;
-  margin-left: 1em;
-  text-align: left;
-  padding-top: 0.5em;
-}
-.card__items {
-  display: none;
-}
 .card__coinsAmount {
-  margin-top: 43px;
+  margin-top: 0.5em;
   margin-bottom: 0;
   color: #F6B850;
   font-size: 1.5em;
   font-weight: bold;
-}
-.card__coinsIcon {
-  display: flex;
-  margin-top: 20px;
 }
 .card__arrow {
   font-size: 1.5em;
@@ -491,13 +477,12 @@ template {
 }
 
 @media (min-width: 800px) {
-  .card {
-    margin-bottom: 0;
-  }
-
   .card__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 
   .card__item {
@@ -520,12 +505,6 @@ template {
     margin-right: auto;
   }
 
-  .card__items {
-    grid-column-start: 3;
-    margin-top: 20px;
-    display: flex;
-  }
-
   .card__form input {
     width: 100%;
   }
@@ -539,8 +518,12 @@ template {
   background-color: #1058A1;
 }
 .header__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   gap: 1em;
 }
 .header__img {
@@ -553,8 +536,12 @@ template {
   font-size: 1.3em;
 }
 .header__coins {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 1em;
 }
 .header__coinsIcon {
@@ -576,55 +563,34 @@ template {
   }
 
   .headerD {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 35%;
     background-color: #1058A1;
   }
-  .headerD__user {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1em;
-    height: 50px;
-    width: 100px;
-    margin: 50px;
-    margin-left: -80px;
-  }
-  .headerD__img {
-    border-radius: 50%;
-  }
-  .headerD__name {
-    color: white;
-    font-weight: 100;
-    font-size: 1.3em;
-    width: 200px;
-  }
+
   .headerD__links {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    margin-top: 50px;
-    margin-left: 110px;
   }
+
   .headerD__links a {
     text-decoration: none;
   }
+
   .headerD__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 1em;
-    width: 80px;
   }
+
   .headerD__item p {
-    padding-top: 1em;
+    padding-top: 0.9em;
     padding-left: 0.5em;
-    width: 40px;
     color: white;
-  }
-
-  #nav-icons__coins {
-    margin-top: -30px;
-  }
-
-  #nav-text__coins {
-    height: 4em;
-    margin-top: -10px;
   }
 }
 @media (min-width: 1000px) {
@@ -659,155 +625,9 @@ template {
   }
 }
 .input-group {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin: 10em;
-  height: 400px;
-  color: #444343;
-}
-.input-group__h1 {
-  font-size: 24px;
-  font-weight: 650;
-  margin: 0;
-}
-.input-group__h2 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 5px;
-  margin-bottom: 3em;
-}
-.input-group__label {
-  font-weight: 600;
-}
-.input-group a {
-  color: #5289C3;
-  font-weight: 700;
+  background-color: blue;
 }
 
-#input-group__fullname {
-  background-color: #F1F6FF;
-  border: 0.1px solid #F1F6FF;
-  border-radius: 6px;
-  height: 41px;
-  width: 257px;
-  margin: 1em;
-  color: #5289C3;
-  padding-left: 1.5em;
-}
-#input-group__username {
-  background-color: #F1F6FF;
-  border: 0.1px solid #F1F6FF;
-  border-radius: 6px;
-  height: 41px;
-  width: 257px;
-  margin: 1em;
-  color: #5289C3;
-  padding-left: 1.5em;
-}
-#input-group__password {
-  background-color: #F1F6FF;
-  border: 0.1px solid #F1F6FF;
-  border-radius: 6px;
-  height: 41px;
-  width: 257px;
-  margin: 1em;
-  color: #5289C3;
-  padding-left: 1.5em;
-}
-#input-group__email {
-  background-color: #F1F6FF;
-  border: 0.1px solid #F1F6FF;
-  border-radius: 6px;
-  height: 41px;
-  width: 257px;
-  margin: 1em;
-  color: #5289C3;
-  padding-left: 1.5em;
-}
-#input-group__btn {
-  background-color: #F6B850;
-  border-radius: 6px;
-  width: 280px;
-  height: 41px;
-  border: 0.1px solid #F6B850;
-  color: #1058A1;
-  font-weight: 700;
-  margin: 1em;
-}
-
-@media (min-width: 800px) {
-  .input-group {
-    font-size: 18px;
-    margin: 4em;
-  }
-  .input-group__h1 {
-    font-size: 38px;
-  }
-  .input-group__h2 {
-    font-size: 21px;
-  }
-
-  #input-group__fullname {
-    height: 55px;
-    width: 482px;
-  }
-  #input-group__username {
-    height: 55px;
-    width: 482px;
-  }
-  #input-group__email {
-    height: 55px;
-    width: 482px;
-  }
-  #input-group__password {
-    height: 55px;
-    width: 482px;
-  }
-  #input-group__btn {
-    width: 518px;
-    height: 55px;
-  }
-}
-.list {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 520;
-  font-size: 16px;
-  list-style-type: none;
-  display: grid;
-}
-.list__item {
-  display: grid;
-  grid-template-columns: 5% 80% 10%;
-  background-color: #1058A1;
-  color: #FAF9FF;
-  margin: 1em;
-  margin-left: 1em;
-  padding: 1em;
-  border-radius: 6px;
-  box-shadow: 0 10px 6px -6px #777;
-}
-.list__coins {
-  color: #F6B850;
-  font-weight: 600;
-}
-
-@media (min-width: 800px) {
-  .list {
-    margin: 5em;
-    margin-top: 2em;
-    text-align: center;
-  }
-
-  .card__h1 {
-    margin-left: 3.5em;
-    padding-top: 1em;
-  }
-}
 .container {
   background-color: #1058A1;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=app.css.map */

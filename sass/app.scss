@@ -1,2 +1,17 @@
-body{
+@import"components/__normalize";
+@import"components/__nav";
+@import"components/__card";
+@import"components/__header";
+@import"components/__footer";
+@import"components/__form";
+@import"components/__list";
+
+
+
+
+$base-text-color: white;
+
+.container{
+    background-color: #1058A1;
 }
+

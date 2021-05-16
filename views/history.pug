@@ -1,10 +1,48 @@
-extends layout
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./stylesheets/style.css')
+  title imdCoin
+  header.headerD
+    .headerD__links
+      a(href='/transfer')
+        .headerD__item
+          img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
+          p.nav__text send coins
+      a(href='/')
+        .headerD__item
+          img.nav__icon(src='./images/homeIconW.svg' alt='home')
+          p.nav__text home
+      a(href='/history')
+        .headerD__item
+          img.nav__icon(src='./images/historyIconW.svg' alt='history')
+          p.nav__text history
+    .header__user.headerD--user
+      p.header__name Nick Koenig
+      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+  .card
+    h1.card__H1 Transactions
+    ul.card__list
+     
+nav.nav
+  a(href="/transfer")
+    .nav__item
+      img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
+      p.nav__text send coins
+  a(href='/')
+    .nav__item
+      img.nav__icon(src='./images/homeIconW.svg' alt='home')
+      p.nav__text home
+  a(href='/history')
+    .nav__item
+      img.nav__icon(src='./images/historyIconW.svg' alt='history')
+      p.nav__text history
 
-block content
-  h1= title
-  p Welcome to #{title}
 
-  ul.transferList
+footer.footer
+  p @IMDCOIN
 
-
+  script(src="http://localhost:3000/primus/primus.js")
   script(src='./javascripts/historyFrontend.js')

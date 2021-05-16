@@ -1,38 +1,72 @@
-extends layout
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./stylesheets/style.css')
+  title imdCoin
+  header.headerD
+    .headerD__links
+      a(href='/transfer')
+        .headerD__item
+          img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
+          p.nav__text send coins
+      a(href='/')
+        .headerD__item
+          img.nav__icon(src='./images/homeIconW.svg' alt='home')
+          p.nav__text home
+      a(href='/history')
+        .headerD__item
+          img.nav__icon(src='./images/historyIconW.svg' alt='history')
+          p.nav__text history
+    .header__user.headerD--user
+      p.header__name Nick Koenig
+      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
 
-block content
-  h1= title
-  p Welcome to #{title}
+h1.card__H1 Send coins
+.card.card--form
+  ul.card__list
+    .card__form
+      form(autocomplete='off' action='')
+        label#card__receiver(for='card__receiver') Receiver
+        br
+        input#receiver(type='text' name='Receiver')
+        br
+      label(for='card__amount') amount
+      br
+      input#card__amount(type='text')
+      br
+      label(for='card__reason') Reason:
+      select#card__reason
+        option(value='Development help') Development help
+        option(value='Design help') Design help
+        option(value='Feedback') Feedback
+        option(value='Meeting deadlines') Meeting deadlines
+        option(value='Other') Other
+      br
+      label(for='card__description') description
+      br
+      input#card__description(type='text')
+      br
+      br
+      input#card__btn(type='submit' value='Submit')
+nav.nav
+  a(href='/transfer')
+    .nav__item
+      img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
+      p.nav__text send coins
+  a(href='/')
+    .nav__item
+      img.nav__icon(src='./images/homeIconW.svg' alt='home')
+      p.nav__text home
+  a(href='/history')
+    .nav__item
+      img.nav__icon(src='./images/historyIconW.svg' alt='history')
+      p.nav__text history
 
+footer.footer
+  p @IMDCOIN
 
-  label(for='receiver') Receiver
-  br
-  input#receiver(type='text' name='Receiver')
-  br
-  label(for='amount') amount
-  br
-  input#amount(type='text')
-  br
-
-  label(for='reason') Reason:
-  select#reason
-    option(value='Development help') Development help
-    option(value='Design help') Design help
-    option(value='Feedback') Feedback
-    option(value='Meeting deadlines') Meeting deadlines
-    option(value='Other') Other
-
-
-  br
-  label(for='description') description
-  br
-  input#description(type='text')
-  br
-  br
-  input#btn(type='submit' value='Submit')
-
-   
-   
-
-
+  
+  script(src="http://localhost:3000/primus/primus.js")
   script(src='./javascripts/transferFrontend.js')

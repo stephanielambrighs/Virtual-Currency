@@ -1,4 +1,35 @@
-// nog checken of het een transfer voor de user van dit acc is
+//const { json } = require("express");
+//const Primus = require("primus");
+let transferList = document.querySelector('.card__list');
+
+// PRIMUS LIVE 
+primus = Primus.connect('http://localhost:3000', {
+    reconnect: {
+        max: Infinity // Number: The max delay before we try to reconnect.
+      , min: 500 // Number: The minimum delay before we try reconnect.
+      , retries: 10 // Number: How many times we should try to reconnect.
+    }
+});
+
+primus.on('data', (json) => {
+    if(json.action === "addTransfer") {
+        console.log(json.data.data);
+        let transfer = `<li class='card__item'>
+        <div class='card__transferInfo'>
+            <p class='card__name'>${json.data.data.transfer.userFrom}</p>
+            <p class='card__date'>${json.data.data.transfer.date}</p>
+        </div>
+        <div class='card__coinInfo'>
+            <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
+        </div>
+    </li>` 
+
+        transferList.insertAdjacentHTML('afterbegin', transfer)    
+    }
+
+        getUserData();
+})
+
 
 //print transfers
 let printTransfers = () => {
@@ -12,17 +43,25 @@ let printTransfers = () => {
     }).then(response =>{
         return response.json();
     }).then(json =>{
-        let transferList = document.querySelector('.transferList');
-        let test = document.querySelector('.test');
     
         json.data.forEach(element => {
 
-           /* if(element.userTo == firstName +" "+lastName) { 
-                var name = element.userFrom
-                var sign = "+"
-              }*/
+       //datum nog meegeven aan db en uitprinten
 
-            let transfer =` <p>${element.userFrom} to ${element.userTo} amount ${element.coins}</p>`
+          let transfer = `<a href="./transferDetail?id=${element._id}">
+          <li class='card__item'>
+          <div class='card__transferInfo'>
+              <p class='card__name'>${element.userFrom}</p>
+              <p class='card__date'>${element.date}</p>
+          </div>
+          <div class='card__coinInfo'>
+              <p class='card__coinsAmount'>${element.coins} coins</p>
+          </div>
+      </li>
+      </a>` 
+          
+
+
         
                 
             transferList.insertAdjacentHTML('afterbegin', transfer)
@@ -34,6 +73,8 @@ let printTransfers = () => {
 }
 
 printTransfers();
+
+
 
 // get user
 let fullUserName;
@@ -49,10 +90,15 @@ let getUserData = () => {
         return response.json();
     }).then(json =>{
         userBalance = json.user[0].coins;
+        let coinsPlaceholder = document.querySelector('.header__coinsAmount');
+        coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
+
         console.log(userBalance);
 
-        let usernamePlaceholder = document.querySelector('.username');
+        let usernamePlaceholder = document.querySelector('.header__name');
         usernamePlaceholder.innerHTML = json.user[0].fullname;
+
+
     
     }).catch(err => {
         console.log(err)
