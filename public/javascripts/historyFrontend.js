@@ -1,6 +1,11 @@
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
 let transferList = document.querySelector('.card__list');
 
-// PRIMUS LIVE 
+// PRIMUS LIVE
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
@@ -28,7 +33,7 @@ primus.on('data', (json) => {
 
         transferList.insertAdjacentHTML('afterbegin', transfer)
     } else {
-        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}"> 
+        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}">
         <li class="card__item">
         <div class="card__transferInfo">
             <p class="card__name">${json.data.data.transfer.userFrom}</p>
@@ -67,7 +72,7 @@ let printTransfers = () => {
             console.log(fullUserName);
 
             if (element.userFrom === fullUserName) {
-                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                let transfer = `<a href="./transferDetail?id=${element._id}">
                 <li class='card__item'>
                 <div class='card__transferInfo'>
                 <p class='card__name'> From: ${element.userFrom}</p>
@@ -84,7 +89,7 @@ let printTransfers = () => {
                 transferList.insertAdjacentHTML('afterbegin', transfer)
 
             } else {
-                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                let transfer = `<a href="./transferDetail?id=${element._id}">
                 <li class='card__item'>
                 <div class='card__transferInfo'>
                     <p class='card__name'> From: ${element.userFrom}</p>
