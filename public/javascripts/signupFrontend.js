@@ -8,7 +8,7 @@
 // window.location.href = "/";
 
 
-let btnSignUp = document.querySelector('#btn-submit');
+let btnSignUp = document.querySelector('#input-group__btn');
 let fullname = '';
 let username = '';
 let email = '';
@@ -17,19 +17,25 @@ let coins = '';
 
 btnSignUp.addEventListener('click', function(e){
     console.log("click");
-    fullname = document.querySelector('#fullname').value;
-    username = document.querySelector('#username').value;
-    email = document.querySelector('#email').value;
-    password = document.querySelector('#password').value;
+    fullname = document.querySelector('#input-group__fullname').value;
+    username = document.querySelector('#input-group__username').value;
+    email = document.querySelector('#input-group__email').value;
+    password = document.querySelector('#input-group__password').value;
 
-    postUser();
+    // validateEmail(email);
+    if(!validateEmail(email)){
+        console.log("works but not valid");
+    }else{
+        console.log(" = valid");
+        postUser();
+    }
 
-    fullname = document.querySelector('#fullname').value = "";
-    username = document.querySelector('#username').value = "";
-    email = document.querySelector('#email').value = "";
-    password = document.querySelector('#password').value = "";
 
-    console.log(fullname, username, email, password, coins);
+    fullname = document.querySelector('#input-group__fullname').value = "";
+    username = document.querySelector('#input-group__username').value = "";
+    email = document.querySelector('#input-group__email').value = "";
+    password = document.querySelector('#input-group__password').value = "";
+
 
     // e.preventDefault();
 });
@@ -58,6 +64,25 @@ let postUser = () => {
             let token = json.data.token;
             localStorage.setItem("token", token);
             window.location.href = "/login";
+            console.log(email + json);
+        }else{
+            console.log("failed");
         }
     })
+}
+
+function validateEmail(email) {
+    // let emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // bob @ aol.com = /^\S+@\S+\.\S+$/
+    // /^\S + @\S + student\S + \.\S + thomasmore\S + \.\S + be\S/
+    let emailFormat = /^[a-zA-Z0-9-._]+@student.thomasmore.be*$/;
+    if(email.match(emailFormat)){
+        console.log("Valid email");
+        return true;
+    }
+    else{
+        console.log("not valid");
+        return false;
+    }
+
 }
