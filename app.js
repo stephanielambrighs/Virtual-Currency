@@ -5,15 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const config = require('config');
 const passport = require('./passport/passport');
-<<<<<<< HEAD
 
 
 //routes opladen
-=======
 const jwt_decode = require('jwt-decode');
 const jwt = require('jsonwebtoken');
 
->>>>>>> 706383dc916a2ab0996bd8fe85874a28a9aeb81c
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');

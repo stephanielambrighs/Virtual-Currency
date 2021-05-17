@@ -91,8 +91,12 @@ let getUserData = () => {
         let coinsPlaceholder = document.querySelector('.header__coinsAmount');
         coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
 
-        let usernamePlaceholder = document.querySelector('.header__name');
+        let usernamePlaceholder = document.querySelector('.headerD__name');
+        let usernamePlaceholder2 = document.querySelector('.header__name');
+
         usernamePlaceholder.innerHTML = json.user[0].fullname;
+        usernamePlaceholder2.innerHTML = json.user[0].fullname;
+
 
     }).catch(err => {
         console.log(err)

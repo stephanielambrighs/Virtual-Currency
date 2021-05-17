@@ -8,28 +8,30 @@ head
 .container.app__background
   header.header
     .header__user
-      p.header__name 
+      p.header__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
     .header__coins
       img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
       p.header__coinsAmount &euro;468.34
   header.headerD
     .headerD__links
-      a(href='/transfer')
-        .headerD__item
-          img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
-          p.nav__text send coins
       a(href='/')
         .headerD__item
           img.nav__icon(src='./images/homeIconW.svg' alt='home')
           p.nav__text home
+      a(href='/transfer')
+        .headerD__item
+          img.nav__icon#nav-icons__coins(src='./images/coinsIconW.svg' alt='send coins')
+          p.nav__text#nav-text__coins send coins
       a(href='/history')
         .headerD__item
           img.nav__icon(src='./images/historyIconW.svg' alt='history')
           p.nav__text history
-    .header__user.headerD--user
-      p.header__name Nick Koenig
+    .headerD__user
+      p.headerD__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+
+
   .card
     h1.card__H1 Incoming transactions
     ul.card__list

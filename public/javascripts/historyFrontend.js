@@ -124,6 +124,12 @@ let getUserData = () => {
     }).then(json => {
         fullUserName = json.user[0].fullname;
         printTransfers();
+
+        let usernamePlaceholder = document.querySelector('.headerD__name');
+        let usernamePlaceholder2 = document.querySelector('.header__name');
+
+        usernamePlaceholder.innerHTML = json.user[0].fullname;
+        usernamePlaceholder2.innerHTML = json.user[0].fullname;
     }).catch(err => {
     });
 }

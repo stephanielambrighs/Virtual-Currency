@@ -4,10 +4,6 @@ if(!localStorage.getItem('token')){
   window.location.href = "../login";
 }
 
-//to do : use form input
-
-//const Primus = require("primus");
-
 /* Primus live */
 primus = Primus.connect('http://localhost:3000', {
   reconnect: {
@@ -84,16 +80,19 @@ let getAllUser = () =>{
     }).then(result => {
         return result.json();
     }).then(json => {
+
         json.users.forEach(user => {
             usersArray.push(user.fullname)
         });
         autocomplete(document.getElementById("receiver"), usersArray);
+        
     }).catch(err => {
         console.log(err)
     });
 }
 
 getAllUser();
+
 
 //autocomplete receiver field
 function autocomplete(inp, arr) {
