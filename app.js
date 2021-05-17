@@ -7,7 +7,7 @@ const config = require('config');
 const passport = require('./passport/passport');
 
 
-
+//routes opladen
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');
@@ -16,12 +16,10 @@ var apiLeaderboardRouter = require('./routes/api/v1/leaderboard');
 
 const mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true); //fix deprecation warning
+mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true}); //connecteer met de db
 
-
-// use current version
-mongoose.set('useCreateIndex', true);
-mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true, useUnifiedTopology: true});
-
+//express opstarten
 var app = express();
 
 // view engine setup
@@ -34,9 +32,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//functie implementeren voor route
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/v1/transfers', passport.authenticate("jwt", { session: false}), apiTransfersRouter);
+app.use('/api/v1/transfers', passport.authenticate("jwt", { session: false}), apiTransfersRouter); // alle de routes die aan /api/v1/transfers voldoen oplossen met apiTransfersRouter
 app.use('/api/v1/leaderboard', passport.authenticate("jwt", { session: false}), apiLeaderboardRouter);
 
 // catch 404 and forward to error handler

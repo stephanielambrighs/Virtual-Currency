@@ -2,12 +2,11 @@ const passport = require('passport');
 const User = require('../models/user');
 
 // use local strategy that we set the plugin for
-//register and login
-passport.use(User.createStrategy());
+passport.use(User.createStrategy()); //instead of authenticate
 
-//  user data for sessions
+/*  user data for sessions
 passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.deserializeUser(User.deserializeUser());*/
 
 // WEBTOKEN STRATEGY (JWT)
 var JwtStrategy = require('passport-jwt').Strategy,

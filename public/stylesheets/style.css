@@ -579,15 +579,14 @@ template {
     gap: 70%;
   }
 }
-.footer {
-  display: none;
-}
-
 @media (min-width: 800px) {
   .footer {
     background-color: #1058A1;
     color: white;
     padding: 0.5em;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
   }
 }
 .container {
