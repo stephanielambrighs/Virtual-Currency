@@ -11,35 +11,35 @@
         justify-content: flex-end;
         gap: 1em;
     }
-    
+
     &__img{
         border-radius: 50%;
         width: 3.5em;
     }
-    
+
     &__name{
         color: white;
         font-weight: 100;
         font-size: 1.3em;
     }
-    
+
     &__coins{
         display: flex;
         justify-content: center;
         gap: 1em;
-     
+
     }
-    
+
     &__coinsIcon{
         width: 2em;
     }
-    
+
     &__coinsAmount{
         color: $base_orange;
         font-size: 2em;
         font-weight: 550;
     }
-      
+
    }
 
    .headerD{
@@ -56,27 +56,58 @@
         gap: 35%;
         background-color: $base_blue;
 
+        &__user{
+            display: flex;
+            justify-content: flex-end;
+            gap: 1em;
+            height: 50px;
+            width: 100px;
+            margin: 50px;
+            margin-left: -80px;
+        }
+
+        &__img{
+            border-radius: 50%;
+        }
+
+        &__name{
+            color: white;
+            font-weight: 100;
+            font-size: 1.3em;
+            width: 200px;
+        }
+
+        &__links{
+            display: flex;
+            margin-top: 50px;
+            margin-left: 110px;
+        }
+
+        &__links a{
+            text-decoration: none;
+        }
+
+        &__item{
+            display: flex;
+            padding: 1em;
+            width: 80px;
+        }
+
+        &__item p{
+            padding-top: 1em;
+            padding-left: 0.5em;
+            width: 40px;
+            color: white;
+        }
     }
-    
-    .headerD__links{
-        display: flex;
-    }
-    
-    .headerD__links a{
-        text-decoration: none;
-    }
-    
-    .headerD__item{
-           display: flex; 
-           padding: 1em;
-    }
-    
-    .headerD__item p{
-        padding-top: 0.9em;
-        padding-left: 0.5em;
-        color: white;
+    #nav-icons__coins{
+        margin-top: -30px;
     }
 
+    #nav-text__coins{
+        height: 4em;
+        margin-top: -10px;
+    }
 }
 
 
@@ -87,7 +118,7 @@
         gap: 40%;
 
     }
-    
+
 
 
 }
@@ -99,7 +130,7 @@
         gap: 55%;
 
     }
-    
+
 
 
 }
@@ -112,7 +143,7 @@
         gap: 65%;
 
     }
-    
+
 
 
 }
@@ -125,9 +156,8 @@
         gap: 70%;
 
     }
-    
+
 
 
 }
-   
-  
+

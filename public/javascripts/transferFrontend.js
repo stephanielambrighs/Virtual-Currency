@@ -1,5 +1,13 @@
 let message_transfer = document.querySelector('.message_transfer');
 
+if(!localStorage.getItem('token')){
+  window.location.href = "../login";
+}
+
+//to do : use form input
+
+//const Primus = require("primus");
+
 /* Primus live */
 primus = Primus.connect('http://localhost:3000', {
   reconnect: {
@@ -50,7 +58,7 @@ let postTransfer = () => {
         "description": description,
         "date": date
 
-    })    
+    })
     }).then(response => {
         return response.json();
     }).then(json => {

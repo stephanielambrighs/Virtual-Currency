@@ -1,6 +1,12 @@
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
+
 let transferList = document.querySelector('.card__list');
 
-// PRIMUS LIVE 
+// PRIMUS LIVE
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.

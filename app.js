@@ -5,9 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const config = require('config');
 const passport = require('./passport/passport');
+<<<<<<< HEAD
 
 
 //routes opladen
+=======
+const jwt_decode = require('jwt-decode');
+const jwt = require('jsonwebtoken');
+
+>>>>>>> 706383dc916a2ab0996bd8fe85874a28a9aeb81c
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');
@@ -42,6 +48,33 @@ app.use('/api/v1/leaderboard', passport.authenticate("jwt", { session: false}), 
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// app.use(function(req, res, next){
+
+//   function verifyToken(req, res, next) {
+//     var token = req.header('token');
+//     if(!token) return res.status(401).send('Access Denied');
+//       try {
+//           token = jwt.verify(token, process.env.TOKEN_SECRET);
+//           res.accessToken = token.accessToken;
+//           next();
+//       } catch {
+//           res.status(400).send('Invalid Token');
+//       }
+//   }
+
+//   console.log(verifyToken);
+//   if(!verifyToken){
+//     res.redirect('/login');
+//   }
+//   else{
+//     next();
+//   }
+// });
+
+
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
