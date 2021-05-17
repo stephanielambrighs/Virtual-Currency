@@ -4,7 +4,7 @@ const transferSchema = new Schema({
     userFrom: String,
     userTo : String,
     coins: Number,
-    description: String,
+    description: String, // require true mogelijk als het verplicht moet zijn. maar bij ons niet van toepassing
     reason: String
 })
 

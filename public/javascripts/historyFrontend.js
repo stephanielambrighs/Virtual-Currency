@@ -32,7 +32,6 @@ let printTransfers = () => {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
-
         },
 
     }).then(response => {
@@ -41,7 +40,6 @@ let printTransfers = () => {
 
         console.log(json);
         json.data.forEach(element => {
-            console.log(fullUserName);
 
             if (element.userFrom === fullUserName) {
                 let transfer = `<a href="./transferDetail?id=${element._id}"> 
@@ -78,19 +76,10 @@ let printTransfers = () => {
                 transferList.insertAdjacentHTML('afterbegin', transfer)
             }
 
-
-
-
-
-            /*let usernamePlaceholder = document.querySelector('.transferList');
-            usernamePlaceholder.innerHTML = json.user[0].fullname;*/
-
         });
 
     })
 }
-
-
 
 // get user
 let fullUserName;
@@ -106,13 +95,8 @@ let getUserData = () => {
         return response.json();
     }).then(json => {
         fullUserName = json.user[0].fullname;
-        console.log(fullUserName);
         printTransfers();
-
-
-
     }).catch(err => {
-        console.log(err)
     });
 }
 

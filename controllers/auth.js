@@ -17,8 +17,8 @@ const signUp = async (req, res, next) => {
 
     await user.setPassword(password);
     await user.save().then(result =>{
-        console.log(result);
 
+        //token aanmaken
         let token = jwt.sign({
             uid: result._id,
             username: result.username,
@@ -40,10 +40,11 @@ const signUp = async (req, res, next) => {
 }
 
 // has to filt in the correct username and password
+//authenticate checkt of gehashed ww uit db overeenkomt met gehashed ingegeven ww
 const logIn = async (req, res, next) => {
     const user = await User.authenticate()(req.body.username, req.body.password).then(result => {
 
-        // if result is not a user
+        // if result is not user
         if(!result.user){
             return res.json({
                 "status": "failed",

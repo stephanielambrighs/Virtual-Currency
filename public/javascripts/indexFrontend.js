@@ -1,18 +1,16 @@
-//const { json } = require("express");
-//const Primus = require("primus");
 let transferList = document.querySelector('.card__list');
 
 // PRIMUS LIVE 
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
-      , min: 500 // Number: The minimum delay before we try reconnect.
-      , retries: 10 // Number: How many times we should try to reconnect.
+        , min: 500 // Number: The minimum delay before we try reconnect.
+        , retries: 10 // Number: How many times we should try to reconnect.
     }
 });
 
 primus.on('data', (json) => {
-    if(json.action === "addTransfer") {
+    if (json.action === "addTransfer") {
         console.log(json.data.data);
         let transfer = `<li class='card__item'>
         <div class='card__transferInfo'>
@@ -22,33 +20,32 @@ primus.on('data', (json) => {
         <div class='card__coinInfo'>
             <p class='card__coinsAmount'>${json.data.data.transfer.coins} coins</p>
         </div>
-    </li>` 
+    </li>`
 
-        transferList.insertAdjacentHTML('afterbegin', transfer)    
+        transferList.insertAdjacentHTML('afterbegin', transfer)
     }
 
-        getUserData();
+    getUserData();
 })
 
 
 //print transfers
 let printTransfers = () => {
-    fetch('http://localhost:3000/api/v1/transfers',{
+    //ajax call
+    fetch('http://localhost:3000/api/v1/transfers', {
         method: "get",
-        headers:{
+        headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        
-    }).then(response =>{
+
+    }).then(response => {
         return response.json();
-    }).then(json =>{
-    
+    }).then(json => {
+
         json.data.forEach(element => {
 
-       //datum nog meegeven aan db en uitprinten
-
-          let transfer = `<a href="./transferDetail?id=${element._id}">
+            let transfer = `<a href="./transferDetail?id=${element._id}">
           <li class='card__item'>
           <div class='card__transferInfo'>
               <p class='card__name'>${element.userFrom}</p>
@@ -58,17 +55,12 @@ let printTransfers = () => {
               <p class='card__coinsAmount'>${element.coins} coins</p>
           </div>
       </li>
-      </a>` 
-          
+      </a>`
 
-
-        
-                
             transferList.insertAdjacentHTML('afterbegin', transfer)
-            
-    
+
         });
-    
+
     })
 }
 
@@ -79,27 +71,23 @@ printTransfers();
 // get user
 let fullUserName;
 let getUserData = () => {
-    fetch('http://localhost:3000/api/v1/transfers/user',{
+    fetch('http://localhost:3000/api/v1/transfers/user', {
         method: "get",
-        headers:{
+        headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        
-    }).then(response =>{
+
+    }).then(response => {
         return response.json();
-    }).then(json =>{
+    }).then(json => {
         userBalance = json.user[0].coins;
         let coinsPlaceholder = document.querySelector('.header__coinsAmount');
         coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
 
-        console.log(userBalance);
-
         let usernamePlaceholder = document.querySelector('.header__name');
         usernamePlaceholder.innerHTML = json.user[0].fullname;
 
-
-    
     }).catch(err => {
         console.log(err)
     });

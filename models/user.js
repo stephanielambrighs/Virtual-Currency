@@ -9,7 +9,7 @@ const User = new Schema({
 });
 
 // you can sign in and login
-User.plugin(localMongoose);
+User.plugin(localMongoose); // zorgt dat we niet zelf ww moeten hashen en veilig maken, username meegeven (registratiefunctie met hashing, authenticate functie)
 
-
+//user model exporteren
 module.exports = mongoose.model('User', User);

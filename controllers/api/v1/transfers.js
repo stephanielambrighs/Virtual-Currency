@@ -1,8 +1,6 @@
 const Transfer = require('../../../models/transfers');
 const User = require('../../../models/user');
 
-
-
 // haal alle inkomende transfers op
 function getAllIncomingT(req, res) {
     Transfer.find({
@@ -16,7 +14,6 @@ function getAllIncomingT(req, res) {
         }
     });
 }
-
 
 // haal alle transfers op 
 function getAllT(req, res) {
@@ -32,24 +29,20 @@ function getAllT(req, res) {
     });
 }
 
-
 //haal een specifieke transfer uit de databank
 function getOneT(req, res) {
-                    Transfer.findOne({ _id: req.params.id }, function (err, docs) {
-                        if (!err) {
-                            res.json({
-                                "status": "success transfer:id",
-                                "data": docs
-                            })
-                        }
-                    })
+    Transfer.findOne({ _id: req.params.id }, function (err, docs) {
+        if (!err) {
+            res.json({
+                "status": "success transfer:id",
+                "data": docs
+            })
+        }
+    })
 
-                };
+};
 
-
-
-
-//voorwaarden om coins te kunnen/mogen sturen nog toevoegen
+//voorwaarden om coins te kunnen/mogen sturen nog toevoegen (had ook in het schema kunnen staan)
 function createCoin(req, res) {
     let transfer = new Transfer();
     transfer.userFrom = req.user.fullname,
@@ -58,28 +51,27 @@ function createCoin(req, res) {
         transfer.description = req.body.description,
         transfer.userTo = req.body.userTo
 
-    let oldSenderCoins = req.user.coins;
     let newSenderCoins = req.user.coins - req.body.coins;
-    //console.log(oldSenderCoins, newSenderCoins);
 
-
+    // haal de data van de verzender en ontvager op
     User.find({ "fullname": req.user.fullname }, (err, docS) => {
         User.find({ "fullname": transfer.userTo }, (errR, docR) => {
-            //console.log(docS);
-            //console.log(docR);
 
+            //check of de user bestaat
             if (docR[0] == null) {
                 res.json({
                     "status": "error",
                     "message": "De user waar je coins naar wilde sturen is niet gevonden",
                 })
             } else {
+                // check of de user niet gelijk is aan de ontvanger
                 if (docS[0].fullname == docR[0].fullname) {
                     res.json({
                         "status": "error",
                         "message": "je kan geen coins naar jezelf sturen",
                     })
                 } else {
+                    //check of er daadwerk coins verstuurd worden
                     if (docS[0].coins >= req.body.coins) {
                         if (transfer.coins == 0) {
                             res.json({
@@ -87,6 +79,7 @@ function createCoin(req, res) {
                                 "message": "je moet meer dan 0 coins per keer sturen.",
                             })
                         } else {
+                            // check of er geen negatieve bedargen ingegeven worden
                             let coinSend = req.body.coins
                             if (coinSend < 0) {
                                 res.json({
@@ -94,6 +87,7 @@ function createCoin(req, res) {
                                     "message": "je kan geen negatieve bedragen sturen!",
                                 })
                             } else {
+                                //verstuur de transfer naar de db
                                 if (docS.length) {
                                     transfer.save((err, doc) => {
                                         if (err) {
@@ -113,14 +107,15 @@ function createCoin(req, res) {
                                         }
                                     })
 
-                                    //find and update user coins
+                                    //update de user coins
                                     User.findOneAndUpdate({
                                         "fullname": req.user.fullname
                                     }, { coins: newSenderCoins }, (err, doc) => { })
 
                                     let oldReceiverCoins = docR[0].coins
                                     let newReceiverCoins = oldReceiverCoins + transfer.coins
-                                    //find and update user coins
+
+                                    // update de sender coins
                                     User.findOneAndUpdate({
                                         "fullname": docR[0].fullname
                                     }, { coins: newReceiverCoins }, (err, doc) => { })
@@ -178,10 +173,10 @@ const getAllUsers = (req, res) => {
 
 
 
-
+// requests openstellen
 module.exports.getAllIncomingT = getAllIncomingT;
 module.exports.getAllT = getAllT;
-module.exports.getOneT= getOneT;
+module.exports.getOneT = getOneT;
 module.exports.createCoin = createCoin;
 module.exports.getUser = getUser;
 module.exports.getAllUsers = getAllUsers;
