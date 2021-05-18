@@ -1,4 +1,4 @@
-let btnSignUp = document.querySelector('#input-group__btn');
+let btnSignUp = document.querySelector('.input-group__btn');
 let fullname = '';
 let username = '';
 let email = '';
@@ -7,10 +7,10 @@ let coins = '';
 
 btnSignUp.addEventListener('click', function(e){
     console.log("click");
-    fullname = document.querySelector('#input-group__fullname').value;
-    username = document.querySelector('#input-group__username').value;
-    email = document.querySelector('#input-group__email').value;
-    password = document.querySelector('#input-group__password').value;
+    fullname = document.querySelector('.input-group__fullname').value;
+    username = document.querySelector('.input-group__username').value;
+    email = document.querySelector('.input-group__email').value;
+    password = document.querySelector('.input-group__password').value;
 
     // validateEmail(email);
     if(!validateEmail(email)){
@@ -21,10 +21,10 @@ btnSignUp.addEventListener('click', function(e){
     }
 
 
-    fullname = document.querySelector('#input-group__fullname').value = "";
-    username = document.querySelector('#input-group__username').value = "";
-    email = document.querySelector('#input-group__email').value = "";
-    password = document.querySelector('#input-group__password').value = "";
+    fullname = document.querySelector('.input-group__fullname').value = "";
+    username = document.querySelector('.input-group__username').value = "";
+    email = document.querySelector('.input-group__email').value = "";
+    password = document.querySelector('.input-group__password').value = "";
 
 
     // e.preventDefault();

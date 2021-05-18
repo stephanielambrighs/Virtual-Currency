@@ -25,25 +25,6 @@
         font-weight: 600;
     }
 
-    a{
-        color: #5289C3;
-        font-weight: 700;
-    }
-
-}
-
-#input-group{
-    &__fullname {
-        background-color: #F1F6FF;
-        border: 0.1px solid #F1F6FF;
-        border-radius: 6px;
-        height: 41px;
-        width: 257px;
-        margin: 1em;
-        color: #5289C3;
-        padding-left: 1.5em;
-    }
-
     &__username{
         background-color: #F1F6FF;
         border: 0.1px solid #F1F6FF;
@@ -66,17 +47,6 @@
         padding-left: 1.5em;
     }
 
-    &__email {
-        background-color: #F1F6FF;
-        border: 0.1px solid #F1F6FF;
-        border-radius: 6px;
-        height: 41px;
-        width: 257px;
-        margin: 1em;
-        color: #5289C3;
-        padding-left: 1.5em;
-    }
-
     &__btn{
         background-color: #F6B850;
         border-radius: 6px;
@@ -88,8 +58,32 @@
         margin: 1em;
     }
 
+    &__fullname {
+        background-color: #F1F6FF;
+        border: 0.1px solid #F1F6FF;
+        border-radius: 6px;
+        height: 41px;
+        width: 257px;
+        margin: 1em;
+        color: #5289C3;
+        padding-left: 1.5em;
+    }
 
+    &__email {
+        background-color: #F1F6FF;
+        border: 0.1px solid #F1F6FF;
+        border-radius: 6px;
+        height: 41px;
+        width: 257px;
+        margin: 1em;
+        color: #5289C3;
+        padding-left: 1.5em;
+    }
 
+    a{
+        color: #5289C3;
+        font-weight: 700;
+    }
 
 }
 
@@ -107,9 +101,6 @@
             font-size: 21px;
         }
 
-    }
-
-    #input-group{
         &__fullname{
             height: 55px;
             width: 482px;

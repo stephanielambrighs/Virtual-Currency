@@ -1,15 +1,15 @@
-let btnLogin = document.querySelector('#input-group__btn');
+let btnLogin = document.querySelector('.input-group__btn');
 let username = '';
 let password = '';
 
 btnLogin.addEventListener('click', function(e){
-    username = document.querySelector('#input-group__username').value;
-    password = document.querySelector('#input-group__password').value;
+    username = document.querySelector('.input-group__username').value;
+    password = document.querySelector('.input-group__password').value;
 
     postUserLogin();
 
-    username = document.querySelector('#input-group__username').value = "";
-    password = document.querySelector('#input-group__password').value = "";
+    username = document.querySelector('.input-group__username').value = "";
+    password = document.querySelector('.input-group__password').value = "";
 
     // console.log(username, password);
 
