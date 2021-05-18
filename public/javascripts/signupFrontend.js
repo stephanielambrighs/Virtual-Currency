@@ -14,9 +14,12 @@ btnSignUp.addEventListener('click', function(e){
 
     // validateEmail(email);
     if(!validateEmail(email)){
-        console.log("works but not valid");
+        // console.log("works but not valid");
+        let error = document.querySelector('.input-group__error');
+        error.style.color = "#B60A19";
+        error.innerHTML = "It must end with @student.thomasmore.be";
     }else{
-        console.log(" = valid");
+        // console.log(" = valid");
         postUser();
     }
 
