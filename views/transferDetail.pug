@@ -15,20 +15,20 @@ head
       p.header__coinsAmount &euro;468.34
   header.headerD
     .headerD__links
-      a(href='/transfer')
-        .headerD__item
-          img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
-          p.nav__text send coins
       a(href='/')
         .headerD__item
-          img.nav__icon(src='./images/homeIconW.svg' alt='home')
-          p.nav__text home
+          img.headerD__icon(src='./images/homeIconW.svg' alt='home')
+          p.headerD__text home
+      a(href='/transfer')
+        .headerD__item
+          img.headerD__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
+          p.headerD__text--coins send coins
       a(href='/history')
         .headerD__item
-          img.nav__icon(src='./images/historyIconW.svg' alt='history')
-          p.nav__text history
-    .header__user.headerD--user
-      p.header__name Nick Koenig
+          img.headerD__icon(src='./images/historyIconW.svg' alt='history')
+          p.headerD__text history
+    .headerD__user
+      p.headerD__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
 
   .card

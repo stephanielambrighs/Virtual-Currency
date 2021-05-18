@@ -5,20 +5,29 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='./stylesheets/style.css')
   title imdCoin
+
+.container.app__background
+  header.header
+    .header__user
+      p.header__name
+      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+    .header__coins
+      img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
+      p.header__coinsAmount &euro;468.34
   header.headerD
     .headerD__links
       a(href='/')
         .headerD__item
-          img.nav__icon(src='./images/homeIconW.svg' alt='home')
-          p.nav__text home
+          img.headerD__icon(src='./images/homeIconW.svg' alt='home')
+          p.headerD__text home
       a(href='/transfer')
         .headerD__item
-          img.nav__icon#nav-icons__coins(src='./images/coinsIconW.svg' alt='send coins')
-          p.nav__text#nav-text__coins send coins
+          img.headerD__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
+          p.headerD__text--coins send coins
       a(href='/history')
         .headerD__item
-          img.nav__icon(src='./images/historyIconW.svg' alt='history')
-          p.nav__text history
+          img.headerD__icon(src='./images/historyIconW.svg' alt='history')
+          p.headerD__text history
     .headerD__user
       p.headerD__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')

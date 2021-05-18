@@ -611,12 +611,14 @@ template {
     width: 40px;
     color: white;
   }
-
-  #nav-icons__coins {
+  .headerD__text {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .headerD__icon--coins {
     margin-top: -30px;
   }
-
-  #nav-text__coins {
+  .headerD__text--coins {
     height: 4em;
     margin-top: -10px;
   }
