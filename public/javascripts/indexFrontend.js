@@ -15,9 +15,10 @@ primus = Primus.connect('http://localhost:3000', {
     }
 });
 
+// add live transfer
 primus.on('data', (json) => {
     if (json.action === "addTransfer") {
-        console.log(json.data.data);
+        console.log(json);
         let transfer = `<li class='card__item'>
         <div class='card__transferInfo'>
             <p class='card__name'>${json.data.data.transfer.userFrom}</p>

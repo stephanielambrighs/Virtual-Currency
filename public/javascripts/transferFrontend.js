@@ -59,7 +59,7 @@ let postTransfer = () => {
         return response.json();
     }).then(json => {
        message_transfer.innerHTML = json.message;
-       primus.write({
+       primus.write({ // aan de server laten weten dat er een transfer is bijgekomen
          "action": 'addTransfer',
          "data": json
        })
