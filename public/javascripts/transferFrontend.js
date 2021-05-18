@@ -1,6 +1,8 @@
-//to do : use form input
+let message_transfer = document.querySelector('.message_transfer');
 
-//const Primus = require("primus");
+if(!localStorage.getItem('token')){
+  window.location.href = "../login";
+}
 
 /* Primus live */
 primus = Primus.connect('http://localhost:3000', {
@@ -35,11 +37,7 @@ btn.addEventListener('click', function (e) {
     reason = document.querySelector('#card__reason').value="";
     description = document.querySelector('#card__description').value="";
 
-    console.log(userTo, coins, description);
 })
-
-
-
 
 let postTransfer = () => {
     fetch('http://localhost:3000/api/v1/transfers', {
@@ -56,19 +54,17 @@ let postTransfer = () => {
         "description": description,
         "date": date
 
-    })    
+    })
     }).then(response => {
         return response.json();
     }).then(json => {
-       console.log(json);
-
-       primus.write({
+       message_transfer.innerHTML = json.message;
+       primus.write({ // aan de server laten weten dat er een transfer is bijgekomen
          "action": 'addTransfer',
          "data": json
        })
 
     }).catch(err => {
-        console.log(err)
     });
 }
 
@@ -84,10 +80,12 @@ let getAllUser = () =>{
     }).then(result => {
         return result.json();
     }).then(json => {
+
         json.users.forEach(user => {
             usersArray.push(user.fullname)
         });
         autocomplete(document.getElementById("receiver"), usersArray);
+        
     }).catch(err => {
         console.log(err)
     });
@@ -96,6 +94,7 @@ let getAllUser = () =>{
 getAllUser();
 
 
+//autocomplete receiver field
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

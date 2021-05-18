@@ -1,6 +1,9 @@
+@import"__variables.scss";
+
+
 .header{
     padding: 2em;
-    background-color: #1058A1;
+    background-color: $base_blue;
 
 
     &__user{
@@ -32,7 +35,7 @@
     }
 
     &__coinsAmount{
-        color: #F6B850;
+        color: $base_orange;
         font-size: 2em;
         font-weight: 550;
     }
@@ -51,7 +54,7 @@
     .headerD{
         display: flex;
         gap: 35%;
-        background-color: #1058A1;
+        background-color: $base_blue;
 
         &__user{
             display: flex;

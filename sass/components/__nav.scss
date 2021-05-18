@@ -1,9 +1,11 @@
+@import"__variables.scss";
+
 .nav{
     display: flex;
     gap: 20%;
     justify-content: center;
     padding-top: 1em;
-    background-color: #1058A1;
+    background-color: $base_blue;
     position: fixed;
     bottom: 0;
     width: 100%;

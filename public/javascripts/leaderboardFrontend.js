@@ -1,26 +1,10 @@
 // const { session } = require("passport");
 
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
 let userList = document.querySelector(".list");
-
-// let token = localStorage.getItem('token');
-
-// if(token){
-//     res.redirect('/leaderboard');
-// }
-// else{
-//     res.redirect('/login');
-// }
-// function getToken(req, res, next){
-//     if(!req.session.accessToken){
-//         res.redirect('/login');
-//         return;
-//     }
-//     next();
-// }
-// getToken();
-
-
-// console.log(token);
 
 let getAllUsers = () =>{
     fetch("http://localhost:3000/api/v1/leaderboard", {

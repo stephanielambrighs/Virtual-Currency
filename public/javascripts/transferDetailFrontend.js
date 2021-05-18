@@ -1,19 +1,19 @@
-//const { json } = require("express");
-//const Primus = require("primus");
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
+
 let transferList = document.querySelector('.card__list');
 
-let url = window.location.search;
-let urlID = new URLSearchParams(url);
+// haal de id uit de url
+let url = window.location.search; //https://www.w3schools.com/jsref/prop_loc_search.asp
+let urlID = new URLSearchParams(url); //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 let id = urlID.get('id');
-console.log(id);
-
-
-
-
-
 
 //print transfers
 let printTransfer = () => {
+    //ajax call
     fetch('http://localhost:3000/api/v1/transfers/id/' + id, {
         method: "get",
         headers: {
@@ -24,14 +24,12 @@ let printTransfer = () => {
     }).then(response => {
         return response.json();
     }).then(json => {
-
+        //check of de user sender of receiver is
         if (json.data.userFrom === fullUserName) {
-            console.log('yes');
-            let transfer = `                <li class="card__item">
-
+            let transfer = `<li class="card__item">
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
-            <p class="card__name"> To: ${json.data.userTo}</p>                        
+            <p class="card__name"> To: ${json.data.userTo}</p>
             <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
@@ -46,11 +44,10 @@ let printTransfer = () => {
 
 
         } else {
-            console.log('no');
             let transfer = `<li class="card__item">
             <div class="card__transferInfo">
             <p class="card__name"> From: ${json.data.userFrom}</p>
-            <p class="card__name"> To: ${json.data.userTo}</p>                        
+            <p class="card__name"> To: ${json.data.userTo}</p>
             <p class="card__date">${json.data.date}</p>
             <p class="card__reason">${json.data.reason}</p>
             <p class="card__description"> ${json.data.description}</p>
@@ -69,12 +66,6 @@ let printTransfer = () => {
     })
 }
 
-
-
-
-
-
-
 // get user
 let fullUserName;
 let getUserData = () => {
@@ -89,11 +80,7 @@ let getUserData = () => {
         return response.json();
     }).then(json => {
         fullUserName = json.user[0].fullname;
-        console.log(fullUserName);
         printTransfer();
-
-
-
     }).catch(err => {
         console.log(err)
     });

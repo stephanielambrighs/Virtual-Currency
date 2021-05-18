@@ -1,6 +1,11 @@
+
+if(!localStorage.getItem('token')){
+    window.location.href = "../login";
+}
+
 let transferList = document.querySelector('.card__list');
 
-// PRIMUS LIVE 
+// PRIMUS LIVE
 primus = Primus.connect('http://localhost:3000', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
@@ -28,7 +33,7 @@ primus.on('data', (json) => {
 
         transferList.insertAdjacentHTML('afterbegin', transfer)
     } else {
-        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}"> 
+        let transfer = `<a href="./transferDetail?id=${json.data.data.transfer._id}">
         <li class="card__item">
         <div class="card__transferInfo">
             <p class="card__name">${json.data.data.transfer.userFrom}</p>
@@ -55,7 +60,6 @@ let printTransfers = () => {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
-
         },
 
     }).then(response => {
@@ -64,10 +68,9 @@ let printTransfers = () => {
 
         console.log(json);
         json.data.forEach(element => {
-            console.log(fullUserName);
 
             if (element.userFrom === fullUserName) {
-                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                let transfer = `<a href="./transferDetail?id=${element._id}">
                 <li class='card__item'>
                 <div class='card__transferInfo'>
                 <p class='card__name'> From: ${element.userFrom}</p>
@@ -84,7 +87,7 @@ let printTransfers = () => {
                 transferList.insertAdjacentHTML('afterbegin', transfer)
 
             } else {
-                let transfer = `<a href="./transferDetail?id=${element._id}"> 
+                let transfer = `<a href="./transferDetail?id=${element._id}">
                 <li class='card__item'>
                 <div class='card__transferInfo'>
                     <p class='card__name'> From: ${element.userFrom}</p>
@@ -101,19 +104,10 @@ let printTransfers = () => {
                 transferList.insertAdjacentHTML('afterbegin', transfer)
             }
 
-
-
-
-
-            /*let usernamePlaceholder = document.querySelector('.transferList');
-            usernamePlaceholder.innerHTML = json.user[0].fullname;*/
-
         });
 
     })
 }
-
-
 
 // get user
 let fullUserName;
@@ -129,13 +123,14 @@ let getUserData = () => {
         return response.json();
     }).then(json => {
         fullUserName = json.user[0].fullname;
-        console.log(fullUserName);
         printTransfers();
 
+        let usernamePlaceholder = document.querySelector('.headerD__name');
+        let usernamePlaceholder2 = document.querySelector('.header__name');
 
-
+        usernamePlaceholder.innerHTML = json.user[0].fullname;
+        usernamePlaceholder2.innerHTML = json.user[0].fullname;
     }).catch(err => {
-        console.log(err)
     });
 }
 

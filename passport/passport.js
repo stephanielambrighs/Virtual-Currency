@@ -1,20 +1,21 @@
 const passport = require('passport');
 const User = require('../models/user');
+const config = require('config');
+
 
 // use local strategy that we set the plugin for
-//register and login
-passport.use(User.createStrategy());
+passport.use(User.createStrategy()); //instead of authenticate
 
-//  user data for sessions
+/*  user data for sessions
 passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.deserializeUser(User.deserializeUser());*/
 
 // WEBTOKEN STRATEGY (JWT)
 var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = 'MyVerySecretWord';
+opts.secretOrKey = config.get('jwt.secret');
 
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({_id: jwt_payload.uid}, function(err, user) {

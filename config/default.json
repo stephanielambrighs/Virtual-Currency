@@ -2,5 +2,8 @@
     "Database":{
         "conn": "mongodb+srv://Nick:test@cluster0.vvuvr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
+    },
+    "jwt":{
+        "secret": "MyVerySecretWord"
     }
 }
