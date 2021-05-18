@@ -22,24 +22,20 @@
         margin-right: auto;
     }
 
-
     &__text{
         margin-top: 0;
         padding-top: 0;
     }
 
-}
-#nav-items__coins{
-    margin-left: 18px;
-}
+    &__icon--coins{
+        margin-left: 18px;
+    }
 
-#nav-items__history{
-    width: 25px;
-    margin-left: 7px;
-}
+    &__icon--history{
+        width: 25px;
+        margin-left: 7px;
+    }
 
-#nav-items__home{
-    margin-left: 4px;
 }
 
 
@@ -48,8 +44,6 @@
    .nav{
        display: none;
    }
-
-
 
 }
 
