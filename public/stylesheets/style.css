@@ -361,18 +361,12 @@ template {
   margin-top: 0;
   padding-top: 0;
 }
-
-#nav-items__coins {
+.nav__icon--coins {
   margin-left: 18px;
 }
-
-#nav-items__history {
+.nav__icon--history {
   width: 25px;
   margin-left: 7px;
-}
-
-#nav-items__home {
-  margin-left: 4px;
 }
 
 @media (min-width: 800px) {
