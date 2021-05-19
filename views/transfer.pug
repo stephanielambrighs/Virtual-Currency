@@ -5,20 +5,28 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='./stylesheets/style.css')
   title imdCoin
+.container.app__background
+  header.header
+    .header__user
+      p.header__name
+      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+    .header__coins
+      img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
+      p.header__coinsAmount &euro;468.34
   header.headerD
     .headerD__links
       a(href='/')
         .headerD__item
-          img.nav__icon(src='./images/homeIconW.svg' alt='home')
-          p.nav__text home
+          img.headerD__icon(src='./images/homeIconW.svg' alt='home')
+          p.headerD__text home
       a(href='/transfer')
         .headerD__item
-          img.nav__icon#nav-icons__coins(src='./images/coinsIconW.svg' alt='send coins')
-          p.nav__text#nav-text__coins send coins
+          img.headerD__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
+          p.headerD__text--coins send coins
       a(href='/history')
         .headerD__item
-          img.nav__icon(src='./images/historyIconW.svg' alt='history')
-          p.nav__text history
+          img.headerD__icon(src='./images/historyIconW.svg' alt='history')
+          p.headerD__text history
     .headerD__user
       p.headerD__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
@@ -54,20 +62,20 @@ h1.card__H1 Send coins
 nav.nav
   a(href='/transfer')
     .nav__item
-      img.nav__icon(src='./images/coinsIconW.svg' alt='send coins')
-      p.nav__text send coins
+      img.nav__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
+      p.nav__text Send coins
   a(href='/')
     .nav__item
-      img.nav__icon(src='./images/homeIconW.svg' alt='home')
-      p.nav__text home
+      img.nav__icon--home(src='./images/homeIconW.svg' alt='home')
+      p.nav__text Home
   a(href='/history')
     .nav__item
-      img.nav__icon(src='./images/historyIconW.svg' alt='history')
-      p.nav__text history
+      img.nav__icon--history(src='./images/historyIconW.svg' alt='history')
+      p.nav__text History
 
 footer.footer
   p @IMDCOIN
 
-  
+
   script(src="http://localhost:3000/primus/primus.js")
   script(src='./javascripts/transferFrontend.js')

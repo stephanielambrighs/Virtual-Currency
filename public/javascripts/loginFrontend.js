@@ -1,15 +1,23 @@
-let btnLogin = document.querySelector('#input-group__btn');
+let btnLogin = document.querySelector('.input-group__btn');
 let username = '';
 let password = '';
 
 btnLogin.addEventListener('click', function(e){
-    username = document.querySelector('#input-group__username').value;
-    password = document.querySelector('#input-group__password').value;
+    username = document.querySelector('.input-group__username').value;
+    password = document.querySelector('.input-group__password').value;
 
-    postUserLogin();
 
-    username = document.querySelector('#input-group__username').value = "";
-    password = document.querySelector('#input-group__password').value = "";
+    if(!postUserLogin()){
+        let error = document.querySelector('.input-group__error');
+        error.style.color = "#B60A19";
+        error.innerHTML = "It must be a valid username and password";
+    }else{
+        postUserLogin();
+    }
+    // postUserLogin();
+
+    username = document.querySelector('.input-group__username').value = "";
+    password = document.querySelector('.input-group__password').value = "";
 
     // console.log(username, password);
 
