@@ -42,7 +42,7 @@ function getOneT(req, res) {
 
 };
 
-//voorwaarden om coins te kunnen/mogen sturen nog toevoegen (had ook in het schema kunnen staan)
+//voorwaarden om coins te kunnen/mogen sturen (had ook in het schema kunnen staan)
 function createCoin(req, res) {
 
 
