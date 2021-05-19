@@ -11,11 +11,13 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "gul": "^1.0.0",
+    "gulp": "^4.0.2",
     "http-errors": "~1.6.3",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
-    "match": "^1.2.10",
     "jwt-decode": "^3.1.2",
+    "match": "^1.2.10",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.5",
     "morgan": "~1.9.1",
@@ -28,5 +30,9 @@
     "pug": "^3.0.2",
     "sass": "^1.32.11",
     "ws": "^7.4.5"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^6.0.0"
   }
 }
