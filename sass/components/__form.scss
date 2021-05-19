@@ -1,31 +1,18 @@
-.input-group{
+.form{
     font-family: $basic-font;
     font-size: 14px;
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin: 10em;
     height: 800px;
     color: #444343;
 
-    &__h1 {
-        font-size: 24px;
-        font-weight: 650;
-        margin: 0;
-    }
-
-    &__h2{
-        font-size: 14px;
-        font-weight: 600;
-        margin: 5px;
-        margin-bottom: 3em;
-    }
 
     &__label{
         font-weight: 600;
     }
 
-    &__username{
+    &__input{
         background-color: #F1F6FF;
         border: 0.1px solid #F1F6FF;
         border-radius: 6px;
@@ -36,51 +23,18 @@
         padding-left: 1.5em;
     }
 
-    &__password{
-        background-color: #F1F6FF;
-        border: 0.1px solid #F1F6FF;
-        border-radius: 6px;
-        height: 41px;
-        width: 257px;
-        margin: 1em;
-        color: #5289C3;
-        padding-left: 1.5em;
-    }
+    // &__btn{
+    //     background-color: #F6B850;
+    //     border-radius: 6px;
+    //     width: 280px;
+    //     height: 41px;
+    //     border: 0.1px solid #F6B850;
+    //     color: $base_blue;
+    //     font-weight: 700;
+    //     margin: 1em;
+    // }
 
-    &__btn{
-        background-color: #F6B850;
-        border-radius: 6px;
-        width: 280px;
-        height: 41px;
-        border: 0.1px solid #F6B850;
-        color: $base_blue;
-        font-weight: 700;
-        margin: 1em;
-    }
-
-    &__fullname {
-        background-color: #F1F6FF;
-        border: 0.1px solid #F1F6FF;
-        border-radius: 6px;
-        height: 41px;
-        width: 257px;
-        margin: 1em;
-        color: #5289C3;
-        padding-left: 1.5em;
-    }
-
-    &__email {
-        background-color: #F1F6FF;
-        border: 0.1px solid #F1F6FF;
-        border-radius: 6px;
-        height: 41px;
-        width: 257px;
-        margin: 1em;
-        color: #5289C3;
-        padding-left: 1.5em;
-    }
-
-    a{
+    &__link{
         color: #5289C3;
         font-weight: 700;
     }
@@ -89,41 +43,19 @@
 
 
 @media(min-width:800px){
-    .input-group{
+    .form{
         font-size: 18px;
         margin: 4em;
 
-        &__h1 {
-            font-size: 38px;
-        }
-
-        &__h2{
-            font-size: 21px;
-        }
-
-        &__fullname{
-            height: 55px;
-            width: 482px;
-        }
-        &__username{
+        &__input {
             height: 55px;
             width: 482px;
         }
 
-        &__email{
-            height: 55px;
-            width: 482px;
-        }
-
-        &__password{
-            height: 55px;
-            width: 482px;
-        }
-
-        &__btn{
-            width: 518px;
-            height: 55px;
-        }
+        // &__btn{
+        //     width: 518px;
+        //     height: 55px;
+        // }
     }
 
 }

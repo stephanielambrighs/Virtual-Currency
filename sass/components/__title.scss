@@ -1,0 +1,39 @@
+.title{
+    font-family: $basic-font;
+    color: #444343;
+    text-align: center;
+    margin-top: 10em;
+
+    &--large{
+        font-size: 24px;
+        font-weight: 650;
+        margin: 0;
+    }
+
+    &--medium{
+        font-size: 14px;
+        font-weight: 600;
+        margin: 5px;
+        margin-bottom: 2em;
+    }
+
+}
+
+
+@media(min-width:800px){
+    .title{
+        font-size: 18px;
+        margin: 3em;
+
+        &--large{
+            font-size: 38px;
+        }
+
+        &--medium {
+            font-size: 21px;
+            margin-bottom: -1em;
+        }
+
+    }
+
+}
