@@ -1,0 +1,22 @@
+.btn{
+        background-color: #F6B850;
+        border-radius: 6px;
+        width: 280px;
+        height: 41px;
+        border: 0.1px solid #F6B850;
+        color: $base_blue;
+        font-weight: 700;
+        margin: 1em;
+
+}
+
+
+@media(min-width:800px){
+    .btn{
+        
+            width: 518px;
+            height: 55px;
+    
+    }
+
+}
