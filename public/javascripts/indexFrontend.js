@@ -1,4 +1,3 @@
-
 if(!localStorage.getItem('token')){
     window.location.href = "../login";
 }
@@ -106,6 +105,21 @@ let getUserData = () => {
 
 getUserData();
 
+// import Vue from 'vue';
+
+
+// const App = {
+    // logout(){
+    // }
+//     methods: {
+//         logout() {
+//             // Remove username from localStorage
+//             localStorage.removeItem('token');
+//             this.$router.push('/login');
+//         }
+//     }
+// }
 
 
 
+// Vue.createApp(App).mount("#app");

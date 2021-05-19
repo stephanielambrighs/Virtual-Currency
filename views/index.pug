@@ -10,6 +10,7 @@ head
     .header__user
       p.header__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+      a(href='/logout') Logout
     .header__coins
       img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
       p.header__coinsAmount &euro;468.34
@@ -29,7 +30,8 @@ head
           p.headerD__text history
     .headerD__user
       p.headerD__name
-      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+      img.headerD__img(src='./images/defaultAvatar.png' alt='avatar')
+      input.headerD__btn(type='submit' value='logout' v-on:click="logout")
 
 
   .card
@@ -56,3 +58,21 @@ footer.footer
 
 script(src="http://localhost:3000/primus/primus.js")
 script(src='./javascripts/indexFrontend.js')
+script(src="https://unpkg.com/vue@next")
+script.
+  const App = {
+      data(){
+        return{
+          message: "a message"
+        };
+      },
+      methods: {
+          logout() {
+              // Remove username from localStorage
+              localStorage.removeItem('token');
+              this.$router.push('/login');
+              console.log("hello");
+          }
+      }
+  };
+  Vue.createApp(App).mount(".headerD__btn");
