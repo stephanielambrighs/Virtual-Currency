@@ -4,6 +4,8 @@
 .header{
     padding: 2em;
     background-color: $base_blue;
+    font-family: $basic-font;
+    font-weight: 500;
 
 
     &__user{
@@ -40,7 +42,7 @@
         font-weight: 550;
     }
 
-   }
+}
 
     a.header__text {
         color: white;
@@ -61,6 +63,8 @@
         display: flex;
         gap: 35%;
         background-color: $base_blue;
+        font-family: $basic-font;
+        font-weight: 500;
 
         &__user{
             display: flex;
@@ -118,6 +122,16 @@
         &__text--coins{
             height: 4em;
             margin-top: -10px;
+        }
+
+        &__text--leaderboard{
+            margin-top: -7px;
+        }
+
+        &__icon--leaderboard{
+            width: 30px;
+            height: 30px;
+            margin-top: 13px;
         }
     }
 
