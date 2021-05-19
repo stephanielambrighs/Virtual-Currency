@@ -10,7 +10,7 @@ head
     .header__user
       p.header__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
-      a(href='/logout') Logout
+      a.header__text(href="/logout" type='submit' value='logout') logout
     .header__coins
       img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
       p.header__coinsAmount &euro;468.34
@@ -31,7 +31,7 @@ head
     .headerD__user
       p.headerD__name
       img.headerD__img(src='./images/defaultAvatar.png' alt='avatar')
-      input.headerD__btn(type='submit' value='logout' v-on:click="logout")
+      a.headerD__text(href="/logout" type='submit' value='logout') logout
 
 
   .card
@@ -58,21 +58,30 @@ footer.footer
 
 script(src="http://localhost:3000/primus/primus.js")
 script(src='./javascripts/indexFrontend.js')
-script(src="https://unpkg.com/vue@next")
-script.
-  const App = {
-      data(){
-        return{
-          message: "a message"
-        };
-      },
-      methods: {
-          logout() {
-              // Remove username from localStorage
-              localStorage.removeItem('token');
-              this.$router.push('/login');
-              console.log("hello");
-          }
-      }
-  };
-  Vue.createApp(App).mount(".headerD__btn");
+//- script(src="https://unpkg.com/vue@next")
+//- script(type="text" src="appthatimports.js")
+//- script.
+//-   import { h } from 'vue'
+//-   const App = {
+//-     render() {
+//-       h('input', this.test)
+//-     },
+//-     methods: {
+//-       logout() {
+//-           // Remove username from localStorage
+//-           localStorage.removeItem('token');
+//-           this.$router.push('/login');
+//-           console.log("hello");
+//-       }
+//-     }
+//-   };
+
+  //- export default {
+  //-   mixins: [App],
+  //-   data () {
+  //-     return {
+  //-       test: 'Test'
+  //-     }
+  //-   }
+  //- };
+  //- Vue.createApp(App).mount(".headerD__btn");

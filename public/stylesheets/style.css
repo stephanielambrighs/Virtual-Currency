@@ -560,6 +560,12 @@ template {
   font-weight: 550;
 }
 
+a.header__text {
+  color: white;
+  text-decoration: none;
+  margin-top: 1.3em;
+}
+
 .headerD {
   display: none;
 }
@@ -621,6 +627,12 @@ template {
   .headerD__text--coins {
     height: 4em;
     margin-top: -10px;
+  }
+
+  a.headerD__text {
+    color: white;
+    text-decoration: none;
+    margin-top: 1.2em;
   }
 }
 @media (min-width: 1000px) {
