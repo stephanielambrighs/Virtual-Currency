@@ -9,18 +9,16 @@ head
     h1.title--large Welcome back!
     h2.title--medium Log in to Currency app
   div.form
-    label.form__label(for='input-group_username') Username
-    br
-    input.form__input(type='text' name='username' placeholder='example')
-    br
-    label.form__label(for='input-group_password' name='password') Password
-    br
-    input.form__input(type='password' name='password' placeholder='******')
-    br
-    div.form__error
-    input.btn(type='submit' value='Log in')
-    br
-    a(href='/signup').form__link Are you new? Sign up here
+    .form__group
+      label.form__label(for='input-group_username') Username
+      input.form__input#username(type='text' name='username' placeholder='example')
+    .form__group
+      label.form__label(for='input-group_password' name='password') Password
+      input.form__input#password(type='password' name='password' placeholder='******')
+    .form__group
+      div.form__error
+      input.btn(type='submit' value='Log in')
+      a(href='/signup').form__link Are you new? Sign up here
 
 
   script(src='./javascripts/loginFrontend.js')

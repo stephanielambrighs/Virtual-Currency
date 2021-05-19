@@ -6,7 +6,12 @@
     align-items: center;
     height: 800px;
     color: #444343;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 20%;
 
+    &__group {
+        display:grid;
+    }
 
     &__label{
         font-weight: 600;
@@ -23,17 +28,6 @@
         padding-left: 1.5em;
     }
 
-    // &__btn{
-    //     background-color: #F6B850;
-    //     border-radius: 6px;
-    //     width: 280px;
-    //     height: 41px;
-    //     border: 0.1px solid #F6B850;
-    //     color: $base_blue;
-    //     font-weight: 700;
-    //     margin: 1em;
-    // }
-
     &__link{
         color: #5289C3;
         font-weight: 700;
@@ -46,16 +40,12 @@
     .form{
         font-size: 18px;
         margin: 4em;
+        grid-template-rows: 15% 15% 15% 30%;
 
         &__input {
             height: 55px;
             width: 482px;
         }
-
-        // &__btn{
-        //     width: 518px;
-        //     height: 55px;
-        // }
     }
 
 }
