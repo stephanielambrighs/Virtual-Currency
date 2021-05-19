@@ -13,6 +13,7 @@
     "express": "~4.16.1",
     "gul": "^1.0.0",
     "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0",
     "http-errors": "~1.6.3",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
     "node-sass": "^6.0.0"
   }
 }
