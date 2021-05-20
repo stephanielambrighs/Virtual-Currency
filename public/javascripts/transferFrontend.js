@@ -93,6 +93,37 @@ let getAllUser = () =>{
 
 getAllUser();
 
+let getUserData = () => {
+  fetch('http://localhost:3000/api/v1/transfers/user', {
+      method: "get",
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+
+  }).then(response => {
+      return response.json();
+  }).then(json => {
+      fullUserName = json.user[0].fullname;
+      printTransfers();
+
+      let coinsPlaceholder = document.querySelector('.header__coins');
+      coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
+
+      let coinsWebsitePlaceholder = document.querySelector('.card__coinsAmount');
+      coinsWebsitePlaceholder.innerHTML = "€" + json.user[0].coins ;
+
+      let usernamePlaceholder = document.querySelector('.headerD__name');
+      let usernamePlaceholder2 = document.querySelector('.header__name');
+
+      usernamePlaceholder.innerHTML = json.user[0].fullname;
+      usernamePlaceholder2.innerHTML = json.user[0].fullname;
+  }).catch(err => {
+  });
+}
+
+getUserData();
+
 
 //autocomplete receiver field
 function autocomplete(inp, arr) {
