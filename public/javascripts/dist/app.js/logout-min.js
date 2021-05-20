@@ -1,0 +1,1 @@
+localStorage.getItem("token")?(window.localStorage.clear(),window.localStorage.removeItem("token"),window.location.href="../login"):window.location.href="../login";

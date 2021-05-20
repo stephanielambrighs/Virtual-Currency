@@ -305,13 +305,15 @@ template {
 
 .nav {
   display: flex;
-  gap: 20%;
+  gap: 12%;
   justify-content: center;
   padding-top: 1em;
   background-color: #1058A1;
   position: fixed;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500; }
   .nav__item {
     color: white; }
   .nav__icon {
@@ -327,7 +329,12 @@ template {
     margin-left: 18px; }
   .nav__icon--history {
     width: 25px;
-    margin-left: 7px; }
+    margin-left: 12px;
+    margin-bottom: 3px; }
+  .nav__icon--leaderboard {
+    margin-left: 25px;
+    margin-top: -5px;
+    width: 40px; }
 
 @media (min-width: 800px) {
   .nav {
@@ -452,7 +459,9 @@ template {
 
 .header {
   padding: 2em;
-  background-color: #1058A1; }
+  background-color: #1058A1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500; }
   .header__user {
     display: flex;
     justify-content: flex-end;
@@ -475,6 +484,11 @@ template {
     font-size: 2em;
     font-weight: 550; }
 
+a.header__text {
+  color: white;
+  text-decoration: none;
+  margin-top: 1.3em; }
+
 .headerD {
   display: none; }
 
@@ -484,7 +498,9 @@ template {
   .headerD {
     display: flex;
     gap: 35%;
-    background-color: #1058A1; }
+    background-color: #1058A1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500; }
     .headerD__user {
       display: flex;
       justify-content: flex-end;
@@ -522,7 +538,17 @@ template {
       margin-top: -30px; }
     .headerD__text--coins {
       height: 4em;
-      margin-top: -10px; } }
+      margin-top: -10px; }
+    .headerD__text--leaderboard {
+      margin-top: -7px; }
+    .headerD__icon--leaderboard {
+      width: 30px;
+      height: 30px;
+      margin-top: 13px; }
+  a.headerD__text {
+    color: white;
+    text-decoration: none;
+    margin-top: 1.2em; } }
 
 @media (min-width: 1000px) {
   .headerD {
@@ -549,27 +575,21 @@ template {
     position: fixed;
     bottom: 0; } }
 
-.input-group {
+.form {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 10em;
   height: 800px;
-  color: #444343; }
-  .input-group__h1 {
-    font-size: 24px;
-    font-weight: 650;
-    margin: 0; }
-  .input-group__h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 5px;
-    margin-bottom: 3em; }
-  .input-group__label {
+  color: #444343;
+  display: grid;
+  grid-template-rows: 10% 10% 10% 20%; }
+  .form__group {
+    display: grid; }
+  .form__label {
     font-weight: 600; }
-  .input-group__username {
+  .form__input {
     background-color: #F1F6FF;
     border: 0.1px solid #F1F6FF;
     border-radius: 6px;
@@ -578,69 +598,18 @@ template {
     margin: 1em;
     color: #5289C3;
     padding-left: 1.5em; }
-  .input-group__password {
-    background-color: #F1F6FF;
-    border: 0.1px solid #F1F6FF;
-    border-radius: 6px;
-    height: 41px;
-    width: 257px;
-    margin: 1em;
-    color: #5289C3;
-    padding-left: 1.5em; }
-  .input-group__btn {
-    background-color: #F6B850;
-    border-radius: 6px;
-    width: 280px;
-    height: 41px;
-    border: 0.1px solid #F6B850;
-    color: #1058A1;
-    font-weight: 700;
-    margin: 1em; }
-  .input-group__fullname {
-    background-color: #F1F6FF;
-    border: 0.1px solid #F1F6FF;
-    border-radius: 6px;
-    height: 41px;
-    width: 257px;
-    margin: 1em;
-    color: #5289C3;
-    padding-left: 1.5em; }
-  .input-group__email {
-    background-color: #F1F6FF;
-    border: 0.1px solid #F1F6FF;
-    border-radius: 6px;
-    height: 41px;
-    width: 257px;
-    margin: 1em;
-    color: #5289C3;
-    padding-left: 1.5em; }
-  .input-group a {
+  .form__link {
     color: #5289C3;
     font-weight: 700; }
 
 @media (min-width: 800px) {
-  .input-group {
+  .form {
     font-size: 18px;
-    margin: 4em; }
-    .input-group__h1 {
-      font-size: 38px; }
-    .input-group__h2 {
-      font-size: 21px; }
-    .input-group__fullname {
+    margin: 4em;
+    grid-template-rows: 15% 15% 15% 30%; }
+    .form__input {
       height: 55px;
-      width: 482px; }
-    .input-group__username {
-      height: 55px;
-      width: 482px; }
-    .input-group__email {
-      height: 55px;
-      width: 482px; }
-    .input-group__password {
-      height: 55px;
-      width: 482px; }
-    .input-group__btn {
-      width: 518px;
-      height: 55px; } }
+      width: 482px; } }
 
 .list {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -670,6 +639,31 @@ template {
   .card__h1 {
     margin-left: 3.5em;
     padding-top: 1em; } }
+
+.title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #444343;
+  text-align: center;
+  margin-top: 10em; }
+  .title--large {
+    font-size: 24px;
+    font-weight: 650;
+    margin: 0; }
+  .title--medium {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px;
+    margin-bottom: 2em; }
+
+@media (min-width: 800px) {
+  .title {
+    font-size: 18px;
+    margin: 3em; }
+    .title--large {
+      font-size: 38px; }
+    .title--medium {
+      font-size: 21px;
+      margin-bottom: -1em; } }
 
 .btn {
   background-color: #F6B850;
