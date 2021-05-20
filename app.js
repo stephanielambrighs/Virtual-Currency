@@ -7,10 +7,6 @@ const config = require('config');
 const passport = require('./passport/passport');
 
 
-//routes opladen
-const jwt_decode = require('jwt-decode');
-const jwt = require('jsonwebtoken');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiTransfersRouter = require('./routes/api/v1/transfers');

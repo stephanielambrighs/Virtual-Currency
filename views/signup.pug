@@ -3,33 +3,27 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' href='./stylesheets/style.css')
+  link(rel='stylesheet' href='./stylesheets/dist/app.css')
 
-  div.input-group
-    h1.input-group__h1 Nice to meet you!
-    h2.input-group__h2 Sign up to Currency app
-
-    label.input-group__label(for='fullname') Fullname
-    br
-    input.input-group__fullname(type='text' name='fullname')
-    br
-    label.input-group__label(for='username') Username
-    br
-    input.input-group__username(type='text' name='username')
-    br
-    label.input-group__label(for='email' name='email') Email
-    br
-    input.input-group__email(type='text' name='email')
-    div.input-group__error
-    label.input-group__label(for='password' name='password') Password
-    br
-    input.input-group__password(type='password' name='password')
-    br
-    input.input-group__btn(type='submit' value='Sign up')
-    br
-    a(href='/login').input-group__link Do you already have an account? Log in here
-
-
+  .title
+    h1.title--large Nice to meet you!
+    h2.title--medium Sign up to Currency app
+  div.form
+    .form__group
+      label.form__label(for='fullname') Fullname
+      input.form__input#fullname(type='text' name='fullname')
+    .form__group
+      label.form__label(for='username') Username
+      input.form__input#username(type='text' name='username')
+    .form__group
+      label.form__label(for='email' name='email') Email
+      input.form__input#email(type='text' name='email')
+      div.form__error
+    .form__group
+      label.form__label(for='password' name='password') Password
+      input.form__input#password(type='password' name='password')
+      input.btn(type='submit' value='Sign up')
+      a(href='/login').form__link Do you already have an account? Log in here
 
 
   script(src='./javascripts/signupFrontend.js')

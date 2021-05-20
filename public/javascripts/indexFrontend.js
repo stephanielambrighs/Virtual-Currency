@@ -1,4 +1,3 @@
-
 if(!localStorage.getItem('token')){
     window.location.href = "../login";
 }
@@ -105,7 +104,4 @@ let getUserData = () => {
 }
 
 getUserData();
-
-
-
 

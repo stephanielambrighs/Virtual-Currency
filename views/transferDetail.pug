@@ -10,6 +10,7 @@ head
     .header__user
       p.header__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+      a.header__text(href="/logout" type='submit' value='logout') logout
     .header__coins
       img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
       p.header__coinsAmount &euro;468.34
@@ -19,6 +20,10 @@ head
         .headerD__item
           img.headerD__icon(src='./images/homeIconW.svg' alt='home')
           p.headerD__text home
+      a(href='/leaderboard')
+        .headerD__item
+          img.headerD__icon--leaderboard(src='./images/podium.png' alt='home')
+          p.headerD__text--leaderboard Leader board
       a(href='/transfer')
         .headerD__item
           img.headerD__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
@@ -29,21 +34,26 @@ head
           p.headerD__text history
     .headerD__user
       p.headerD__name
-      img.header__img(src='./images/defaultAvatar.png' alt='avatar')
+      img.headerD__img(src='./images/defaultAvatar.png' alt='avatar')
+      a.headerD__text(href="/logout" type='submit' value='logout') logout
 
   .card
     h1.card__H1  transaction
     ul.card__list
 
 nav.nav
-  a(href='/transfer')
-    .nav__item
-      img.nav__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
-      p.nav__text Send coins
   a(href='/')
     .nav__item
       img.nav__icon--home(src='./images/homeIconW.svg' alt='home')
       p.nav__text Home
+  a(href='/leaderboard')
+    .nav__item
+      img.nav__icon--leaderboard(src='./images/podium.png' alt='home')
+      p.nav__text Leaderboard
+  a(href='/transfer')
+    .nav__item
+      img.nav__icon--coins(src='./images/coinsIconW.svg' alt='send coins')
+      p.nav__text Send coins
   a(href='/history')
     .nav__item
       img.nav__icon--history(src='./images/historyIconW.svg' alt='history')

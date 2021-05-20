@@ -37,4 +37,8 @@ router.get('/transferDetail', function(req, res, next) {
   res.render('transferDetail');
 });
 
+router.get('/logout', function(req, res, next){
+  res.render('logout');
+});
+
 module.exports = router;

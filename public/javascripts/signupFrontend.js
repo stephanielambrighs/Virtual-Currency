@@ -1,4 +1,4 @@
-let btnSignUp = document.querySelector('.input-group__btn');
+let btnSignUp = document.querySelector('.btn');
 let fullname = '';
 let username = '';
 let email = '';
@@ -7,15 +7,15 @@ let coins = '';
 
 btnSignUp.addEventListener('click', function(e){
     console.log("click");
-    fullname = document.querySelector('.input-group__fullname').value;
-    username = document.querySelector('.input-group__username').value;
-    email = document.querySelector('.input-group__email').value;
-    password = document.querySelector('.input-group__password').value;
+    fullname = document.querySelector('#fullname').value;
+    username = document.querySelector('#username').value;
+    email = document.querySelector('#email').value;
+    password = document.querySelector('#password').value;
 
     // validateEmail(email);
     if(!validateEmail(email)){
         // console.log("works but not valid");
-        let error = document.querySelector('.input-group__error');
+        let error = document.querySelector('.form__error');
         error.style.color = "#B60A19";
         error.innerHTML = "It must end with @student.thomasmore.be";
     }else{
@@ -24,10 +24,10 @@ btnSignUp.addEventListener('click', function(e){
     }
 
 
-    fullname = document.querySelector('.input-group__fullname').value = "";
-    username = document.querySelector('.input-group__username').value = "";
-    email = document.querySelector('.input-group__email').value = "";
-    password = document.querySelector('.input-group__password').value = "";
+    fullname = document.querySelector('#fullname').value = "";
+    username = document.querySelector('#username').value = "";
+    email = document.querySelector('#email').value = "";
+    password = document.querySelector('#password').value = "";
 
 
     // e.preventDefault();
