@@ -33,6 +33,7 @@
     "ws": "^7.4.5"
   },
   "devDependencies": {
+    "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "node-sass": "^6.0.0"
