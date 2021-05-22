@@ -35,7 +35,7 @@ btnSignUp.addEventListener('click', function(e){
 
 
 let postUser = () => {
-    fetch('http://localhost:3000/users/signup', {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/users/signup', {
         method: "post",
         headers: {
             'Content-Type': 'application/json'
