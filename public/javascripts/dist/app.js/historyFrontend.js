@@ -1,4 +1,4 @@
-
+//test
 if(!localStorage.getItem('token')){
     window.location.href = "../login";
 }
@@ -129,6 +129,13 @@ let getUserData = () => {
 
         usernamePlaceholder.innerHTML = json.user[0].fullname;
         usernamePlaceholder2.innerHTML = json.user[0].fullname;
+        let coinsPlaceholder = document.querySelector('.header__coinsAmount');
+        coinsPlaceholder.innerHTML = json.user[0].coins + " coins";
+
+        let coinsWebsitePlaceholder = document.querySelector('.card__coinsAmount');
+        coinsWebsitePlaceholder.innerHTML = "€" + json.user[0].coins ;
+
+
     }).catch(err => {
     });
 }
