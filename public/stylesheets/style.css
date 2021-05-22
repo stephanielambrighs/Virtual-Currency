@@ -672,7 +672,7 @@ a.header__text {
 }
 @media (min-width: 1900px) {
   .headerD {
-    gap: 70%;
+    gap: 65%;
   }
 }
 @media (min-width: 800px) {

@@ -6,7 +6,7 @@ let cssmin = require('gulp-cssmin');
 let rename = require('gulp-rename');
 
 
-sass2css = function () {
+exports.sass2css = function () {
   return src('./sass/app.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./public/stylesheets/dist/'))
