@@ -5,7 +5,7 @@ if(!localStorage.getItem('token')){
 }
 
 /* Primus live */
-primus = Primus.connect('http://localhost:3000', {
+primus = Primus.connect('https://imd-virtual-currency-app.herokuapp.com', {
   reconnect: {
       max: Infinity,
       min: 500,
@@ -40,7 +40,7 @@ btn.addEventListener('click', function (e) {
 })
 
 let postTransfer = () => {
-    fetch('http://localhost:3000/api/v1/transfers', {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers', {
         method: "post",
         headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ let postTransfer = () => {
 
 let usersArray =[]
 let getAllUser = () =>{
-    fetch("http://localhost:3000/api/v1/transfers/allUsers", {
+    fetch("https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/allUsers", {
         method: "get",
         'headers': {
             'content-type': 'application/json',
@@ -85,7 +85,7 @@ let getAllUser = () =>{
             usersArray.push(user.fullname)
         });
         autocomplete(document.getElementById("receiver"), usersArray);
-        
+
     }).catch(err => {
         console.log(err)
     });
@@ -94,7 +94,7 @@ let getAllUser = () =>{
 getAllUser();
 
 let getUserData = () => {
-  fetch('http://localhost:3000/api/v1/transfers/user', {
+  fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/user', {
       method: "get",
       headers: {
           'Content-Type': 'application/json',

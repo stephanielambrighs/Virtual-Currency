@@ -6,7 +6,7 @@ if(!localStorage.getItem('token')){
 let transferList = document.querySelector('.card__list');
 
 // PRIMUS LIVE
-primus = Primus.connect('http://localhost:3000', {
+primus = Primus.connect('https://imd-virtual-currency-app.herokuapp.com', {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
         , min: 500 // Number: The minimum delay before we try reconnect.
@@ -54,7 +54,7 @@ primus.on('data', (json) => {
 
 //print all transfers
 let printTransfers = () => {
-    fetch('http://localhost:3000/api/v1/transfers/allT', {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/allT', {
         method: "get",
         headers: {
             'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ let printTransfers = () => {
 // get user
 let fullUserName;
 let getUserData = () => {
-    fetch('http://localhost:3000/api/v1/transfers/user', {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/user', {
         method: "get",
         headers: {
             'Content-Type': 'application/json',

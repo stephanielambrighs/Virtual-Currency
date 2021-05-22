@@ -7,7 +7,7 @@ if(!localStorage.getItem('token')){
 let userList = document.querySelector(".list");
 
 let getAllUsers = () =>{
-    fetch("http://localhost:3000/api/v1/leaderboard", {
+    fetch("https://imd-virtual-currency-app.herokuapp.com/api/v1/leaderboard", {
         method: "get",
         'headers': {
             'content-type': 'application/json',
@@ -56,7 +56,7 @@ getAllUsers();
 // get user
 let fullUserName;
 let getUserData = () => {
-    fetch('http://localhost:3000/api/v1/transfers/user',{
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/user',{
         method: "get",
         headers:{
             'Content-Type': 'application/json',

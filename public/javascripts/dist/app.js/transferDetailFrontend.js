@@ -14,7 +14,7 @@ let id = urlID.get('id');
 //print transfers
 let printTransfer = () => {
     //ajax call
-    fetch('http://localhost:3000/api/v1/transfers/id/' + id, {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/id/' + id, {
         method: "get",
         headers: {
             'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ let printTransfer = () => {
 // get user
 let fullUserName;
 let getUserData = () => {
-    fetch('http://localhost:3000/api/v1/transfers/user', {
+    fetch('https://imd-virtual-currency-app.herokuapp.com/api/v1/transfers/user', {
         method: "get",
         headers: {
             'Content-Type': 'application/json',
