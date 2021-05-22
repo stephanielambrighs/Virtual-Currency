@@ -11,7 +11,7 @@ head
     .header__user
       p.header__name
       img.header__img(src='./images/defaultAvatar.png' alt='avatar')
-        a.header__text(href="/logout" type='submit' value='logout') logout
+      a.header__text(href="/logout" type='submit' value='logout') logout
     .header__coins
       img.header__coinsIcon(src='./images/coinIcon.svg' alt='')
       p.header__coinsAmount &euro;468.34
@@ -68,4 +68,4 @@ footer.footer
   p @IMDCOIN
 
   script(src="http://localhost:3000/primus/primus.js")
-  script(src='./javascripts/historyFrontend.js')
+  script(src='javascripts/dist/app.js/historyFrontend-min.js')

@@ -6,14 +6,14 @@ let cssmin = require('gulp-cssmin');
 let rename = require('gulp-rename');
 
 
-exports.sass2css = function () {
+sass2css = function () {
   return src('./sass/app.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./public/stylesheets/dist/'))
 }
 
 
-exports.jsMinify = function () {
+jsMinify = function () {
   return src(['./public/javascripts/*.js'])
     .pipe(minify({
     }))
@@ -29,8 +29,8 @@ exports.cssMinify = function (){
 }
 
 
-// exports.default = function () {
-//   watch('./sass/**/*.scss', sass2css)
-//   watch('./public/javascripts/*.js', jsMinify)
+exports.default = function () {
+  watch('./sass/**/*.scss', sass2css)
+   watch('./public/javascripts/*.js', jsMinify)
 //   watch('./public/stylesheets/dist/app.css', cssMinify)
-// }
+ }
