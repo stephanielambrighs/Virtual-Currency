@@ -429,6 +429,10 @@ template {
     background-color: #F6B850;
     color: #1058A1;
     font-weight: bold; }
+  .card .message_transfer {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bolder; }
 
 @media (min-width: 800px) {
   .card {
