@@ -139,7 +139,7 @@ function createCoin(req, res) {
                     } else {
                         res.json({
                             "status": "error",
-                            "message": "je balans is niet groot genoeg",
+                            "message": "Je balans is niet groot genoeg",
                         })
                     }
                 }

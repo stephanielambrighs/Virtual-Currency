@@ -15,8 +15,7 @@ sass2css = function () {
 
 jsMinify = function () {
   return src(['./public/javascripts/*.js'])
-    .pipe(minify({
-    }))
+    .pipe(minify({}))
     .pipe(dest('./public/javascripts/dist/app.js'))
 }
 
